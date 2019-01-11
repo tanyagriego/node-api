@@ -8,7 +8,8 @@ const jsonParser = bodyParser.json();
 
 // Post to register a new log
 router.post('/', jsonParser, (req, res) => {
-  return res.json(req.body);
+  console.log("this is my test");
+  return res.json("test");
 });
 
 router.get('/', (req, res) => {
