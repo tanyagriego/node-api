@@ -32,18 +32,19 @@ app.use(function (req, res, next) {
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 
-app.use('/api/comments/', resourcesRouter);
+app.use('/api/resources/', resourcesRouter);
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter);
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
-
+// Will be used to test authenticaion later in project DO NOT DELETE
 // A protected endpoint which needs a valid JWT to access it
-app.get('/api/protected', jwtAuth, (req, res) => {
-  return res.json({
-    data: 'Sup, yo.'
-  });
-});
+
+// app.get('/api/protected', jwtAuth, (req, res) => {
+//   return res.json({
+//     data: 'Sup, yo.'
+//   });
+// });
 
 app.use('*', (req, res) => {
   return res.status(404).json({ message: 'Not Found' });

@@ -3,6 +3,12 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
+const resourceSchema = mongoose.Schema({
+  giftName: {type: String, required: true},
+  giftLink: String,
+  giftPrice: String
+});
+
 const ResourceSchema = mongoose.Schema({ any: Object });
 
 ResourceSchema.methods.serialize = function() {
