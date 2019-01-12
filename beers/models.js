@@ -3,10 +3,11 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-const resourceSchema = mongoose.Schema({
-  giftName: {type: String, required: true},
-  giftLink: String,
-  giftPrice: String
+const beersSchema = mongoose.Schema({
+      beerType: {type: String, required: true},
+      display_name: {type: String, required: true},
+      brewer_name: {type: String, required: true},
+      on_draft: {type: boolean} 
 });
 
 const ResourceSchema = mongoose.Schema({ any: Object });
