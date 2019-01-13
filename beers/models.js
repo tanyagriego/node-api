@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const beersSchema = mongoose.Schema({
-    beerType: {type: String, required: true},
+    beer_type: {type: String, required: true},
     display_name: {type: String, required: true},
     brewer_name: {type: String, required: true},
     on_draft: {type: boolean, required: true} 

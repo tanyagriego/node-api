@@ -4,10 +4,11 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const businessesSchema = mongoose.Schema({
-  businessName: {type: String, required: true},
-  businessWebiste: {type: String, required: true},
-  businessOpen:{type: String, required: true},
-  businessClose:{type: String, required: true}
+  business_name: {type: String, required: true},
+  business_id: {type: String, required: true},
+  business_webiste: {type: String, required: true},
+  hours_open:{type: String, required: true},
+  hours_close:{type: String, required: true}
 });
 
 const BusinessesSchema = mongoose.Schema({ any: Object });
