@@ -14,9 +14,10 @@ const beersSchema = mongoose.Schema({
 
 beersSchema.methods.serialize = function() {
   return {
-    attribute1: this.attribute1 || '',
-    attribute2: this.attribute1 || '',
-    attribute3: this.attribute1 || ''
+    beer_type: this.beer_type || '',
+    display_name: this.display_name || '',
+    brewer_name: this.brewer_name || '',
+    on_draft: this.on_draft || ''
   };
 };
 
