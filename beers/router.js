@@ -12,7 +12,7 @@ router.post('/', jsonParser, (req, res) => {
   return res.json("test");
 });
 
-router.get('/', (req, res) => {
+router.get('/beers', (req, res) => {
   return res.json('sup yo');
 });
 

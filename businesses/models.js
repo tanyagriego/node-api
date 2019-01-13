@@ -3,15 +3,16 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-const resourceSchema = mongoose.Schema({
-  giftName: {type: String, required: true},
-  giftLink: String,
-  giftPrice: String
+const businessesSchema = mongoose.Schema({
+  businessName: {type: String, required: true},
+  businessWebiste: {type: String, required: true},
+  businessOpen:{type: String, required: true},
+  businessClose:{type: String, required: true}
 });
 
-const ResourceSchema = mongoose.Schema({ any: Object });
+const BusinessesSchema = mongoose.Schema({ any: Object });
 
-ResourceSchema.methods.serialize = function() {
+BusinessesSchema.methods.serialize = function() {
   return {
     attribute1: this.attribute1 || '',
     attribute2: this.attribute1 || '',
@@ -19,6 +20,6 @@ ResourceSchema.methods.serialize = function() {
   };
 };
 
-const Resource = mongoose.model('Resource', ResourceSchema);
+const Buisnesses = mongoose.model('Businesses', BusinessesSchema);
 
 module.exports = {Resource};
