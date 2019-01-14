@@ -8,7 +8,6 @@ const passport = require('passport');
 const { router: businessesRouter } = require('./businesses');
 const { router: beersRouter } = require('./beers');
 const { router: usersRouter } = require('./users');
-
 //const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 
 mongoose.Promise = global.Promise;
@@ -16,6 +15,8 @@ mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL } = require('./config');
 
 const app = express();
+app.use(express.static('public'));
+app.listen(process.env.PORT || 8080);
 
 
 // Logging
