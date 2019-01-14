@@ -3,22 +3,26 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-const resourceSchema = mongoose.Schema({
-  giftName: {type: String, required: true},
-  giftLink: String,
-  giftPrice: String
+const businessesSchema = mongoose.Schema({
+  business_name: {type: String, required: true},
+  business_id: {type: String, required: true},
+  business_webiste: {type: String, required: true},
+  hours_open:{type: String, required: true},
+  hours_close:{type: String, required: true}
 });
 
-const ResourceSchema = mongoose.Schema({ any: Object });
+//const BusinessesSchema = mongoose.Schema({ any: Object });
 
-ResourceSchema.methods.serialize = function() {
+BusinessesSchema.methods.serialize = function() {
   return {
-    attribute1: this.attribute1 || '',
-    attribute2: this.attribute1 || '',
-    attribute3: this.attribute1 || ''
+    business_name: this.business_name || '',
+    business_id: this.business_id || '',
+    business_webiste: this.business_webiste || '',
+    hours_open: this.hours_open || '',
+    hours_close: this.hours_close || ''
   };
 };
 
-const Resource = mongoose.model('Resource', ResourceSchema);
+const Buisnesses = mongoose.model('Businesses', businessesSchema);
 
-module.exports = {Resource};
+module.exports = {Buisnesses};

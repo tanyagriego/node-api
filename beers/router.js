@@ -2,7 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const {Resource} = require('./models');
+const {Beers} = require('./models');
 const router = express.Router();
 const jsonParser = bodyParser.json();
 
