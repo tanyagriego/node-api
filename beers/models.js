@@ -10,8 +10,6 @@ const beersSchema = mongoose.Schema({
     on_draft: {type: boolean, required: true} 
 });
 
-//const ResourceSchema = mongoose.Schema({ any: Object });
-
 beersSchema.methods.serialize = function() {
   return {
     beer_type: this.beer_type || '',

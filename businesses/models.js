@@ -11,7 +11,7 @@ const businessesSchema = mongoose.Schema({
   hours_close:{type: String, required: true}
 });
 
-const BusinessesSchema = mongoose.Schema({ any: Object });
+//const BusinessesSchema = mongoose.Schema({ any: Object });
 
 BusinessesSchema.methods.serialize = function() {
   return {

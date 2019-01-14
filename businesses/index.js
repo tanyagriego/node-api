@@ -1,5 +1,5 @@
 'use strict';
-const {Resource} = require('./models');
-const {router} = require('./router');
+const {Business} = require('./models');
+const {businessRouter} = require('./router');
 
-module.exports = {Resource, router};
+module.exports = {Business, businessRouter};
