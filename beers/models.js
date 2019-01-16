@@ -7,7 +7,7 @@ const beersSchema = mongoose.Schema({
     beer_type: {type: String, required: true},
     display_name: {type: String, required: true},
     brewer_name: {type: String, required: true},
-    on_draft: {type: boolean, required: true} 
+    on_draft: {type: Boolean, required: true} 
 });
 
 beersSchema.methods.serialize = function() {
