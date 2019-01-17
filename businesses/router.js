@@ -25,9 +25,8 @@ router.post('', jsonParser, (req, res) => {
     })
 });
 
-router.get('', (req, res) => {
-  console.log("get request", req.query);
-  
+router.get('/', (req, res) => {
+  console.log("get request", req.query.name);  
    return Business
     .find({business_name: req.query.name})
     .then(business_name_result => res.json(business_name_result))
