@@ -36,8 +36,22 @@ router.get('/', (req, res) => {
 });
 
 router.delete('', (req, res) => {
-  return res.json('test string');
-});
+  console.log("delete request:", req.params.buisness_name)
+  return Business
+  .remove({businesses: req.params.buisness_name})
+  .then(() => {
+    Business
+    .findByIdAndRemove(req.params.business_name)
+    .then(() => {
+      console.log ('Deleted business name \`{$business_name}\`');
+      res.status(204).json({message: 'success'});
+    });
+  })
+    .catch(err => {
+      res.status(500).json({error: err.message});
+  
+    })
+  });
 
 router.put('', (req, res) => {
   return res.json('test string');
