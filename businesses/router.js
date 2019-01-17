@@ -9,9 +9,6 @@ const jsonParser = bodyParser.json();
 // Post to register a new log
 router.post('/', jsonParser, (req, res) => {
   //console.log("this is my test");
-  //console.log("Request body:", req.body);
-  //return res.json('test string');
-  
   return Business
     .create({
       business_name: req.body.business_name,
@@ -28,8 +25,14 @@ router.post('/', jsonParser, (req, res) => {
     })
 });
 
-router.get('/', (req, res) => {
-  return res.json('test string');
+router.get('/:id', (req, res) => {
+  console.log("get request", JSON.stringify(req.params, null, 4));
+   Business
+    .find({business_name: "Groundbreak"})
+    .then(business_name_result => res.json(business_name_result))
+    .catch(err => {
+      res.status(500).json({error: err.message});
+    })
 });
 
 router.delete('/', (req, res) => {
