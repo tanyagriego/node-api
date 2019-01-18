@@ -8,17 +8,16 @@ const jsonParser = bodyParser.json();
 
 // Post to register a new log
 router.post('', jsonParser, (req, res) => {
-  //console.log("this is my test");
+  console.log("Post Request");
   return Business
     .create({
       business_name: req.body.business_name,
-      business_id: req.body.business_id,
       business_webiste: req.body.business_webiste,
       hours_open: req.body.hours_open,
       hours_close: req.body.hours_close
     })
-      .then(
-      business => res.status(201).json(business.serialize()))
+    .then(business => res.status(201).json(business.serialize())
+    )
     .catch(err => {
       console.error(err);
       res.status(500).json({message: 'Internal server error'});
@@ -35,25 +34,19 @@ router.get('/', (req, res) => {
     })
 });
 
-router.delete('', (req, res) => {
-  console.log("delete request:", req.params.buisness_name)
+router.delete('/:id', (req, res) => {
+  console.log("delete request:", req.params.id)
   return Business
-  .remove({businesses: req.params.buisness_name})
-  .then(() => {
-    Business
-    .findByIdAndRemove(req.params.business_name)
-    .then(() => {
-      console.log ('Deleted business name \`{$business_name}\`');
-      res.status(204).json({message: 'success'});
-    });
-  })
+    .findByIdAndRemove(req.params.id)
+    .then((response) => {
+        res.status(204).json({message: response});
+    })
     .catch(err => {
       res.status(500).json({error: err.message});
-  
     })
-  });
+});
 
-router.put('', (req, res) => {
+router.put('/', (req, res) => {
   return res.json('test string');
 });
 
