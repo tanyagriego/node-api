@@ -47,7 +47,20 @@ router.delete('/:id', (req, res) => {
 });
 
 router.put('/', (req, res) => {
-  return res.json('test string');
+  console.log ("Put request:")
+  return Business
+    .findOneAndUpdate({
+      business_name: req.body.business_name,
+      business_webiste: req.body.business_webiste,
+      hours_open: req.body.hours_open,
+      hours_close: req.body.hours_close
+    })
+    .then((updatedBusiness) => {
+      res.json(updatedBusiness);
+    })
+    .catch(err => {
+    res.status(500).json({error: err.message});
+    })
 });
 
 module.exports = {router};
