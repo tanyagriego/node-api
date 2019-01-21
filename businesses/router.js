@@ -46,16 +46,10 @@ router.delete('/:id', (req, res) => {
     })
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id',jsonParser, (req, res) => {
   console.log ("Put request:", req.body);
   return Business
-    .findByIdAndUpdate(req.params.id,
-      {
-      business_name: req.body.business_name,
-      business_webiste: req.body.business_webiste,
-      hours_open: req.body.hours_open,
-      hours_close: req.body.hours_close
-    }, {upsert: true, new: true})
+    .findByIdAndUpdate(req.params.id, req.body)
     .then((updatedBusiness) => {
       res.status(204).json(updatedBusiness);
     })
@@ -63,14 +57,5 @@ router.put('/:id', (req, res) => {
     res.status(500).json({error: err.message});
     })
 });
-
-//     .findByIdAndUpdate (req.params.id, req.body,{new:true},
-//     (err, todo) => {
-//       if (err) return res.status(500).send(err);
-//       return res.send(todo);
-//   }
-// )
-// });
-
 
 module.exports = {router};

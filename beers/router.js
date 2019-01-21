@@ -44,8 +44,16 @@ router.delete('/:id', (req, res) => {
   })
 });
 
-router.put('/', (req, res) => {
-  return res.json('sup yo');
+router.put('/:id', jsonParser, (req, res) => {
+  console.log("Put request:", req.body);
+  return Beers
+  .findByIdAndUpdate(req.params.id, req.body)
+  .then((updatedBeer) => {
+    res.status(204).json(updatedBeer);
+  })
+  .catch(err => {
+    res.status(500).json({error: err.message});
+  })
 });
 
 module.exports = {router};
