@@ -32,8 +32,16 @@ router.get('/', (req, res) => {
   })
 });
 
-router.delete('/', (req, res) => {
-  return res.json('sup yo');
+router.delete('/:id', (req, res) => {
+  console.log("Delete Request:", req.params.id)
+  return Beers
+  .findByIdAndRemove(req.params.id)
+  .then((response) => {
+    res.status(204).json({message: response});
+  })
+  .catch(err => {
+    res.status(500).json({error: err.message});
+  })
 });
 
 router.put('/', (req, res) => {
