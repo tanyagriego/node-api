@@ -23,7 +23,13 @@ router.post('/', jsonParser, (req, res) => {
   });
 
 router.get('/', (req, res) => {
-  return res.json('sup yo');
+  console.log("Get request:", req.query.type);
+  return Beers
+  .find({beer_type: req.query.type})
+  .then(beer_type_result => res.json(beer_type_result))
+  .catch(err => {
+    res.status(500).json({error: err.message});
+  })
 });
 
 router.delete('/', (req, res) => {
