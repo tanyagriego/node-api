@@ -16,6 +16,16 @@ const {TEST_DATABASE_URL} = require('../config');
 
 chai.use(chaiHttp);
 
+describe('Beers API Resource', function () {
+    before(function() {
+        return runServer(TEST_DATABASE_URL);
+    });
+
+    after(function() {
+        return closeServer();
+    });
+})
+
 describe ('GET endpoint', function (){
     //get request should return all existing beers 
     it ('should return all existing beers', function() {
@@ -36,3 +46,5 @@ describe ('GET endpoint', function (){
              });
             });
 });
+
+
