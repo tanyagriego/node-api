@@ -2,9 +2,6 @@
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const faker = require('faker');
-const mongoose = require('mongoose');
-
 // this makes the expect syntax available throughout
 // this module
 const expect = chai.expect;
@@ -30,7 +27,7 @@ describe ('GET endpoint', function (){
     //get request should return all existing beers 
     it ('should return all existing beers', function() {
         let res;
-        return chai.request (app)
+        return chai.request(app)
             .get('/beers')
             .then (function (_res) {
                 res = _res;
@@ -42,9 +39,65 @@ describe ('GET endpoint', function (){
                 expect(res.body.beers).to.have.length.of(count);
              })
              .catch(err => {
-                 console.log(err, null, 4);
+                //  console.log(err, null, 4);
              });
             });
+});
+
+describe('POST endpoint', function() {
+
+    const newBeer = {
+        beer_type: "IPA",
+        display_name: "NWPA",
+        brewer_name: "Deschutes Brewery",
+        on_draft: true     
+    };
+
+    it ('should add a new beer', function () {
+        return chai.request(app)
+        .post('/beers')
+        .send(newBeer)
+        .then(function(res) {
+            expect(res).to.be.json;
+            expect(res).to.have.status(201);
+            expect(res.body).to.include.keys(
+               'beer_type', 'display_name', 'brewer_name', 'on_draft');
+            expect(res.body.id).to.not.be.null;
+            // expect(res.body.beer_type).to.equal(newBeer.beer_type);
+        })
+        .catch(err => {
+            console.log("error found in POST endpoint")
+        });
+
+    });
+});
+
+describe ('PUT endpoint', function() {
+
+    it('should return an updated beer', function () {
+        const updatedBeerData = {
+            beer_type: "Blone Ale",
+            display_name: "Meteor Shower",
+            brewer_name: "Ghostfish",
+            on_draft: false
+        };
+        return Beers
+        .findOne()
+        .then(function(beer) {
+            updatedBeerData.id = beer.id;
+        
+        return chai.request(app)
+        .put(`/beers/${beer.id}`)
+        .send(updatedBeerData);
+        })
+        .then (function(res) {
+            expect(res).to.have.status(204);
+            return Beers.findById(updatedBeerData.id);
+        })
+        .catch(err => {
+            console.log("error found in PUT endpoint")
+        });
+    });
 });
 
 
