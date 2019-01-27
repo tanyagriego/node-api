@@ -93,10 +93,32 @@ describe ('PUT endpoint', function() {
         .then (function(res) {
             expect(res).to.have.status(204);
             return Beers.findById(updatedBeerData.id);
+            done();
         })
-        .catch(err => {
-            console.log("error found in PUT endpoint")
-        });
+        .catch(done);
+        // .catch(err => {
+        //     console.log("error found in PUT endpoint")
+        // });
+    });
+});
+
+describe ('DELETE endpoint', function() {
+    it('should delete a beer by id', function (){
+    let beer;
+
+    return Beers
+    .findOne()
+    .then(_beer => {
+        beer = _beer;
+        return chai.request(app).delete(`/beers/${beer.id}`);
+    })
+    .then(res => {
+        res.should.have.status(204);
+        return Beers.findById(beer.id);
+    })
+    .then(_beer => {
+        should.not.exist(_beer);
+    });
     });
 });
 
