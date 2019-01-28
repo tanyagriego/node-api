@@ -100,25 +100,25 @@ describe ('PUT endpoint', function() {
         });
     });
 
-// describe ('DELETE endpoint', function() {
-//     it('should delete a beer by id', function (){
-//     let beer;
+describe ('DELETE endpoint', function() {
+    it('should delete a beer by id', function (){
+    let beer;
+});
 
-//     return Beers
-//     .findOne()
-//     .then(_beer => {
-//         beer = _beer;
-//         return chai.request(app).delete(`/beers/${beer.id}`);
-//     })
-//     .then(res => {
-//         res.should.have.status(204);
-//         return Beers.findById(beer.id);
-//     })
-//     .then(_beer => {
-//         should.not.exist(_beer);
-//     })
-//     .catch(err => {
-//         //  console.log(err, null, 4);
-//      });
-//     });
-// });
+    return Beers
+    .findOne()
+    .then(_beer => {
+        beer = _beer;
+        return chai.request(app).delete(`/beers/${beer.id}`);
+    })
+    .then(res => {
+        res.should.have.status(204);
+        return Beers.findById(beer.id);
+    })
+    .then(_beer => {
+        should.not.exist(_beer);
+    })
+    .catch(err => {
+        //  console.log(err, null, 4);
+     });
+});
