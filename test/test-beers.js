@@ -63,10 +63,17 @@ describe('POST endpoint', function() {
             expect(res.body).to.include.keys(
                'beer_type', 'display_name', 'brewer_name', 'on_draft');
             expect(res.body.id).to.not.be.null;
-            // expect(res.body.beer_type).to.equal(newBeer.beer_type);
+            //  expect(res.body.beer_type).to.equal(newBeer.beer_type);
+            return Beers.findById(res.body.id);
         })
+        .then(function (post) {
+            post.beer_type.should.equal(newBeer.beer_type);
+            post.display_name.should.equal(newBeer.display_name);
+            post.brewer_name.should.equal(newBeer.brewer_name);
+            post.on_draft.should.equal(newBeer.on_draft);
+          })
         .catch(err => {
-            console.log("error found in POST endpoint")
+            console.log("error found in Beers POST endpoint")
         });
 
     });

@@ -66,7 +66,7 @@ describe('POST endpoint', function() {
             // expect(res.body.business_name).to.equal(newBusiness.business_name);
         })
         .catch(err => {
-            console.log("error found in POST endpoint")
+            console.log("error found in Business POST endpoint")
         });
 
     });
@@ -101,7 +101,7 @@ describe ('PUT endpoint', function() {
     });
 
 describe ('DELETE endpoint', function() {
-    it('should delete a beer by id', function (){
+    it('should delete a businessnp by id', function (){
     let business;
 });
 

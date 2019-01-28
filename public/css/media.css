@@ -1,0 +1,39 @@
+@media only screen and (max-width: 700px) {
+    /* .section.search-by-text{
+        background-image: url("./images/background.jpg");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 200px 3%;
+        opacity: 0.9px;
+        height: 100vh;
+    } */
+    header {
+        display:flex;
+        color: #EC9930;
+    }
+    button {
+        color:#F6B539;
+    }
+    search-by-icons {
+        display: flex;
+    
+    }
+    icon-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    #search-icons {
+        order: 1;
+        height: 100px;
+        width: 100px;
+        margin: 10px;
+        background-color: #F1A334
+    }    
+}
+
+
+@media only screen and (min-width: 700px) { 
+    
+    }
