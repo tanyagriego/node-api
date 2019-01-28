@@ -7,7 +7,7 @@ const chaiHttp = require('chai-http');
 const expect = chai.expect;
 
 //should these be single . ?
-const {Businesses} = require('../businesses/models');
+const {Business} = require('../businesses/models');
 const {app, runServer, closeServer} = require('../server');
 const {TEST_DATABASE_URL} = require('../config');
 
@@ -70,4 +70,55 @@ describe('POST endpoint', function() {
         });
 
     });
+});
+
+describe ('PUT endpoint', function() {
+
+    it('should return an updated business', function () {
+        const updatedBusinessesData = {
+            business_name: "Beer Mongers",
+            business_webiste: "wwww.beermongers.com",
+            hours_open: "10 am",
+            hours_close: "9 pm"
+        }
+    });
+        return Business
+        .findOne()
+        .then(business => {
+            updatedBusinessesData.id = business.id;
+        
+        return chai.request(app)
+        .put('/businesses/')
+        .send(updatedBusinessesData)
+        })
+        .then (res => {
+            res.should.have.status(204);
+            return Business.findById(updatedBusinessesData.id);
+        })
+        .catch(err => {
+            console.log("error found in PUT endpoint")
+        });
+    });
+
+describe ('DELETE endpoint', function() {
+    it('should delete a beer by id', function (){
+    let business;
+});
+
+    return Business
+    .findOne()
+    .then(_business => {
+        business = _business;
+        return chai.request(app).delete(`/businesses/${business.id}`);
+    })
+    .then(res => {
+        res.should.have.status(204);
+        return Business.findById(beer.id);
+    })
+    .then(_business => {
+        should.not.exist(_business);
+    })
+    .catch(err => {
+        //  console.log(err, null, 4);
+     });
 });
