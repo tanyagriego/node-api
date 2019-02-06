@@ -1,6 +1,12 @@
 @import "media.css";
+@import "reset.css";
 
 * {
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
