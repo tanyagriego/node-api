@@ -36,12 +36,17 @@ function addBusiness() {
 
 //This function creates a container for the business data which is eventually appended to the DOM
 function appendBuinessData (business) {
-    return `<h2 class="business-name">"${business_name}"</h2>
+    return `<h2 class="business-name">"${business.business_name}"</h2>
             <div>
-                <p class="business-website">"${business_webiste}"</p>
-                <p class="business-neighborhood">"${business_neighborhood}"</p>
-                <p class="business-address">"${business_address}"</p>
-                <p class="business-open">"${hours_open}"</p>
-                <p class="business-close">"${hours_close}"/p>
+                <p class="business-website">"${business.business_webiste}"</p>
+                <p class="business-neighborhood">"${business.business_neighborhood}"</p>
+                <p class="business-address">"${business.business_address}"</p>
+                <p class="business-open">"${business.hours_open}"</p>
+                <p class="business-close">"${business.hours_close}"/p>
             </div>`
 };
+
+function displayApiData (business) {
+    console.log("Business Data:", );
+    const results = business
+}
