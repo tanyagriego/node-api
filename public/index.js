@@ -1,9 +1,25 @@
 //This function submits a GET request/registers a click event and grabs the user's input
-function submit () {
+(function () {
     $(".submit-button").submit (event => {
+        console.log("Submit function fired");
         event.preventDefault();
+        const searchTermVal = $(event.currentTarget).find(".search-box")
+        .val();
+        fetchBeer(searchTermVal);
     })
+})();   
+
+//This function creates a fetch request to the server
+function fetchBeer (searchTermVal) {
+    fetch(`localhost:3000/?type=${searchTermVal}`)
+    .then(function(response) {
+        return response.json();
+      })
+      .then(function(myJson) {
+        console.log(JSON.stringify(myJson));
+      });
 }
+  
 
 //This function submits a DELETE request for beers
 function deleteBeer() {
@@ -50,3 +66,4 @@ function displayApiData (business) {
     console.log("Business Data:", );
     const results = business
 }
+console.log("File Loaded");
