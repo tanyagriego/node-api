@@ -1,6 +1,6 @@
 //This function submits a GET request/registers a click event and grabs the user's input
 (function () {
-    $(".submit-button").submit (event => {
+    $(".search-form").submit (event => {
         console.log("Submit function fired");
         event.preventDefault();
         const searchTermVal = $(event.currentTarget).find(".search-box")
@@ -11,12 +11,12 @@
 
 //This function creates a fetch request to the server
 function fetchBeer (searchTermVal) {
-    fetch(`localhost:3000/?type=${searchTermVal}`)
+    fetch(`http://localhost:3000/api/beers?type=${searchTermVal}`)
     .then(function(response) {
         return response.json();
       })
       .then(function(myJson) {
-        console.log(JSON.stringify(myJson));
+        //something like linke 68 in JS— should be a function where you grab the data and use it. 
       });
 }
   
@@ -66,4 +66,3 @@ function displayApiData (business) {
     console.log("Business Data:", );
     const results = business
 }
-console.log("File Loaded");
