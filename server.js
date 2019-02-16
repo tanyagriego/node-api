@@ -40,6 +40,8 @@ app.use('/api/businesses/', businessesRouter);
 app.use('/api/users/', usersRouter);
 app.use('/api/beers/', beersRouter);
 
+app.use('/beers', express.static(path.join(__dirname, 'public/beers.html')));
+
 ////Will be used to test authenticaion later in project DO NOT DELETE
 //const jwtAuth = passport.authenticate('jwt', { session: false });
 // A protected endpoint which needs a valid JWT to access it

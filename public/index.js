@@ -5,9 +5,11 @@
         event.preventDefault();
         const searchTermVal = $(event.currentTarget).find(".search-box")
         .val();
-        fetchBeer(searchTermVal);
+        localStorage.setItem('searchTermVal', JSON.stringify(searchTermVal));
+        // fetchBeer();
+        window.location.href = "http://localhost:3000/beers";
     })
-})();   
+})();  
 
 //This function creates a fetch request to the server
 function fetchBeer (searchTermVal) {
