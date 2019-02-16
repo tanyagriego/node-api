@@ -10,3 +10,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+#js-beer {
+    list-style-type: none;
+}

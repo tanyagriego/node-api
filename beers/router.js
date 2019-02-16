@@ -13,6 +13,7 @@ router.post('/', jsonParser, (req, res) => {
     beer_type: req.body.beer_type,
     display_name: req.body.display_name,
     brewer_name: req.body.brewer_name,
+    associated_business: req.associated_business || '',
     on_draft: req.body.on_draft
   })
   .then(beer => res.status(201).json(beer.serialize())
