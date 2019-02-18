@@ -27,8 +27,11 @@ function renderBeers(beers) {
   });
 }
 
-
-function deleteBeer() {
-  // code to delete from database
-  renderBeers();
+// code to delete from database
+function deleteBeer(beer, url) {
+  return fetch(url + '/' + beer, {
+    method: 'delete',
+  })
+  .then(response => response.json());
+  // renderBeers();
 }
