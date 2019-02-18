@@ -16,14 +16,14 @@ function renderBeers(beers) {
   beers.forEach(beer => {
     console.log('beer: ', beer);
     $( "#beersList" ).append(
-      `<div class="beer-list-results">
+      `<ul class="beer-list-results">
         <li _id=${beer._id} class= "beer-list-item">${beer.display_name}</li>
         <li _id=${beer._id} class= "beer-list-item">${beer.brewer_name}</li>
         <li _id=${beer._id} class= "beer-list-item">${beer.associated_business}</li>
-        <li _id=${beer._id} class= "beer-list-item">${beer.on_draft}</li>
-       </div>`
-    );
-    // code to create an event listener
+        <li _id=${beer._id} class= "beer-list-item">${beer.on_draft}</li></br>
+       </ul>`
+    );   
+     // code to create an event listener
   });
 }
 
