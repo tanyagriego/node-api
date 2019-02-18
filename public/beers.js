@@ -16,11 +16,11 @@ function renderBeers(beers) {
   beers.forEach(beer => {
     console.log('beer: ', beer);
     $( "#beersList" ).append(
-      `<div>
-        <li _id=${beer._id}>${beer.display_name}</li>
-        <li _id=${beer._id}>${beer.brewer_name}</li>
-        <li _id=${beer._id}>${beer.associated_business}</li>
-        <li _id=${beer._id}>${beer.on_draft}</li>
+      `<div class="beer-list-results">
+        <li _id=${beer._id} class= "beer-list-item">${beer.display_name}</li>
+        <li _id=${beer._id} class= "beer-list-item">${beer.brewer_name}</li>
+        <li _id=${beer._id} class= "beer-list-item">${beer.associated_business}</li>
+        <li _id=${beer._id} class= "beer-list-item">${beer.on_draft}</li>
        </div>`
     );
     // code to create an event listener
