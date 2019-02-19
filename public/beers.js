@@ -30,7 +30,7 @@ function renderBeers(beers) {
   });
 }
 
-// code to delete from database
+//This function deletes a beer from the database
 function deleteRequest(beer, url) {
   let searchTermValue = localStorage.getItem('searchTermVal');
   searchTermValue = JSON.parse(searchTermValue);
@@ -43,12 +43,14 @@ function deleteRequest(beer, url) {
   });
 }
 
-//This function submits a DELETE request for beers
-function deleteBeer(beer) {
+//This function removes selected beer (element(s)) from the DOM
+function deleteBeer() {
+  console.log("Delete function fired");
   //when the delete button is clicked
- $(".delete").click (function() {
-    console.log("Delete function fired");
-  //remove the 
-    $('.beer-list-results').remove()
+ $("div").click(function() {
+    console.log("Click Event Fired")
+  //remove the div that holds targeted beer from the DOM (would '.beer-list-results' remove all beers, in this case??)
+    $('.beer-list-results').slideUp();
 });
-}
+ }
+ deleteBeer();
