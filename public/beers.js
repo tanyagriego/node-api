@@ -46,9 +46,9 @@ function deleteRequest(beer, url) {
 //This function submits a DELETE request for beers
 function deleteBeer(beer) {
   //when the delete button is clicked
- $(".delete").submit (event => {
+ $(".delete").click (function() {
     console.log("Delete function fired");
-    event.preventDefault();
+  //remove the 
     $('.beer-list-results').remove()
 });
 }
