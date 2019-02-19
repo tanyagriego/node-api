@@ -48,7 +48,7 @@ function deleteBeer() {
  $('#beersList').on('click',".delete", function() {
     console.log("Click Event Fired")
   //remove the div that holds targeted beer from the DOM (would '.beer-list-results' remove all beers, in this case??)
-    $(this).parent().slideUp();
+    $(this).parent().remove();
   })
 };
 
