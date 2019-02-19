@@ -23,7 +23,7 @@ function renderBeers(beers) {
           <li _id=${beer._id} class= "beer-list-item">${beer.associated_business}</li>
           <li _id=${beer._id} class= "beer-list-item">${beer.on_draft}</li></br>
         </ul>
-        <button type="button" class="delete">Delete</button>
+        <button class="delete">Delete</button>
         </div>`
     );   
      // code to create an event listener
@@ -42,14 +42,14 @@ function deleteRequest(beer, url) {
   });
 }
 
-//This function removes selected beer (element(s)) from the DOM
 function deleteBeer() {
   console.log("Delete function fired");
   //when the delete button is clicked
- $("div").on('click',".beer-list-results", function() {
+ $('#beersList').on('click',".delete", function() {
     console.log("Click Event Fired")
   //remove the div that holds targeted beer from the DOM (would '.beer-list-results' remove all beers, in this case??)
-    $(this).slideUp();
-});
- }
- deleteBeer();
+    $(this).parent().slideUp();
+  })
+};
+
+deleteBeer();
