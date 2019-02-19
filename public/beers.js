@@ -24,12 +24,11 @@ function renderBeers(beers) {
           <li _id=${beer._id} class= "beer-list-item">${beer.on_draft}</li></br>
         </ul>
         <button type="button" class="delete">Delete</button>
-      </div>`
+        </div>`
     );   
      // code to create an event listener
   });
 }
-
 //This function deletes a beer from the database
 function deleteRequest(beer, url) {
   let searchTermValue = localStorage.getItem('searchTermVal');
@@ -47,10 +46,10 @@ function deleteRequest(beer, url) {
 function deleteBeer() {
   console.log("Delete function fired");
   //when the delete button is clicked
- $("div").click(function() {
+ $("div").on('click',".beer-list-results", function() {
     console.log("Click Event Fired")
   //remove the div that holds targeted beer from the DOM (would '.beer-list-results' remove all beers, in this case??)
-    $('.beer-list-results').slideUp();
+    $(this).slideUp();
 });
  }
  deleteBeer();
