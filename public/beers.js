@@ -31,17 +31,18 @@ function renderBeers(beers) {
 }
 //This function deletes a beer from the database
 function deleteRequest(beer, url) {
-  let searchTermValue = localStorage.getItem('searchTermVal');
-  searchTermValue = JSON.parse(searchTermValue);
-  return fetch(`http://localhost:3000/api/beers?type=${searchTermValue}`, {
+  // let searchTermValue = localStorage.getItem('searchTermVal');
+  // searchTermValue = JSON.parse(searchTermValue);
+  return fetch(`http://localhost:3000/api/beers/${id}`, {
     method: 'delete',
   })
   .then(response => response.json())
   .then (beer => {
-    deleteBeers(beer);
+    deleteBeer(beer);
   });
 }
 
+//This function deletes a beer from the DOM. Note: Add an alert/confirmation feature so the user can confirm the deletion before deleting
 function deleteBeer() {
   console.log("Delete function fired");
   //when the delete button is clicked
@@ -53,3 +54,4 @@ function deleteBeer() {
 };
 
 deleteBeer();
+deleteRequest();
