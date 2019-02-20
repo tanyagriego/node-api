@@ -23,32 +23,27 @@ function renderBeers(beers) {
           <li class= "beer-list-item">${beer.associated_business}</li>
           <li class= "beer-list-item">${beer.on_draft}</li></br>
         </ul>
-        <button class="delete" attr="data-beer-id">Delete</button>
-        </div>`
+        <button class="delete" data-beer-id="${beer._id}">Delete</button>
+      </div>`
     );   
-     // code to create an event listener
-  });
-}
-//This function deletes a beer from the database
-function deleteRequest() {
-  // Need something here which acknowledges the user's/frontend and then puts that request onto the end of the url string
-  // let deletedBeer = /*need to access the ID of the beer user wants to delete*/;
-  return fetch(`http://localhost:3000/api/beers/${deletedBeer}`, {
-    method: 'DELETE',
-    headers: {'Content-Type': 'application/json'},
-  })
-  .then(response => response.json())
-  .then (beer => {
-    deleteBeer(beer);
   });
 }
 
-//This function deletes a beer from the DOM. Note: Add an alert/confirmation feature so the user can confirm the deletion before deleting
+function deleteRequest(beerId, $deletedObj) {
+  return fetch(`http://localhost:3000/api/beers/${beerId}`, {
+    method: 'DELETE',
+    headers: {'Content-Type': 'application/json'},
+  })
+  .then (() => $deletedObj.remove())
+    //Add confirmation that beer was successfully deleted
+}
+
 function deleteBeer() {
   console.log("Delete function fired");
- $('#beersList').on('click',".delete", function() {
-    $(this).parent().remove();
-    deleteRequest('#data-beer-id');
+ $('#beersList').on('click', ".delete", function() {
+    let $deletedObj = $(this).parent();
+    let beerId = $(this).attr('data-beer-id');
+    deleteRequest(beerId, $deletedObj);
   })
 };
 
