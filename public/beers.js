@@ -18,10 +18,10 @@ function renderBeers(beers) {
     $( "#beersList" ).append(
       `<div class="beer-list-results">
         <ul>
-          <li _id=${beer._id} class= "beer-list-item">${beer.display_name}</li>
-          <li _id=${beer._id} class= "beer-list-item">${beer.brewer_name}</li>
-          <li _id=${beer._id} class= "beer-list-item">${beer.associated_business}</li>
-          <li _id=${beer._id} class= "beer-list-item">${beer.on_draft}</li></br>
+          <li class= "beer-list-item">${beer.display_name}</li>
+          <li class= "beer-list-item">${beer.brewer_name}</li>
+          <li class= "beer-list-item">${beer.associated_business}</li>
+          <li class= "beer-list-item">${beer.on_draft}</li></br>
         </ul>
         <button class="delete" attr="data-beer-id">Delete</button>
         </div>`
@@ -32,7 +32,7 @@ function renderBeers(beers) {
 //This function deletes a beer from the database
 function deleteRequest() {
   // Need something here which acknowledges the user's/frontend and then puts that request onto the end of the url string
-  let deletedBeer = /*need to access the ID of the beer user wants to delete*/;
+  // let deletedBeer = /*need to access the ID of the beer user wants to delete*/;
   return fetch(`http://localhost:3000/api/beers/${deletedBeer}`, {
     method: 'DELETE',
     headers: {'Content-Type': 'application/json'},
