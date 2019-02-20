@@ -11,17 +11,6 @@
     })
 })();  
 
-//This function creates a fetch request to the server
-// function fetchBeer (searchTermVal) {
-//     fetch(`http://localhost:3000/api/beers?type=${searchTermVal}`)
-//     .then(function(response) {
-//         return response.json();
-//       })
-//       .then(function(myJson) {
-//         //something like linke 68 in JS— should be a function where you grab the data and use it. 
-//       });
-// }
-  
 //This function submits a DELETE request for businesses
 function deleteBusiness() {
     
@@ -58,8 +47,3 @@ function addBusiness() {
 //                 <p class="business-close">"${business.hours_close}"/p>
 //             </div>`
 // };
-
-// function displayApiData (business) {
-//     console.log("Business Data:", );
-//     const results = business
-// }

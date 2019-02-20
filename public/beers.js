@@ -1,4 +1,4 @@
- (function fetchBeer() {
+(function fetchBeer() {
   let searchTermValue = localStorage.getItem('searchTermVal');
   searchTermValue = JSON.parse(searchTermValue);
   return fetch(`http://localhost:3000/api/beers?type=${searchTermValue}`, {
@@ -32,7 +32,7 @@ function renderBeers(beers) {
 //This function deletes a beer from the database
 function deleteRequest() {
   // Need something here which acknowledges the user's/frontend and then puts that request onto the end of the url string
-  // let deletedBeer = something about the id?
+  let deletedBeer = /*need to access the ID of the beer user wants to delete*/;
   return fetch(`http://localhost:3000/api/beers/${deletedBeer}`, {
     method: 'DELETE',
     headers: {'Content-Type': 'application/json'},
@@ -55,9 +55,9 @@ function deleteBeer() {
 };
 
 //Post a new beer
-function postBeer(event) {
-  event.preventDefault();
-}
+// function postBeer(event) {
+//   event.preventDefault();
+// }
 
 deleteBeer();
 deleteRequest();
