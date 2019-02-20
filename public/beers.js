@@ -5,9 +5,9 @@
     method: 'GET',
     headers: {"Accept": "application/json", 'Content-Type': 'application/json'},
     mode: 'cors'
-  }).then(data => {
-    return data.json();
-  }).then(beers => {
+  })
+  .then(response => response.json())
+  .then(beers => {
     renderBeers(beers);
   });
 })();
@@ -30,10 +30,10 @@ function renderBeers(beers) {
   });
 }
 //This function deletes a beer from the database
-function deleteRequest(beer, url) {
-  // let searchTermValue = localStorage.getItem('searchTermVal');
-  // searchTermValue = JSON.parse(searchTermValue);
-  return fetch(`http://localhost:3000/api/beers/${id}`, {
+function deleteRequest() {
+  // Need something here which acknowledges the user's/frontend and then puts that request onto the end of the url string
+  // let deletedBeer = something about the id?
+  return fetch(`http://localhost:3000/api/beers/${deletedBeer}`, {
     method: 'delete',
   })
   .then(response => response.json())
