@@ -34,7 +34,8 @@ function deleteRequest() {
   // Need something here which acknowledges the user's/frontend and then puts that request onto the end of the url string
   // let deletedBeer = something about the id?
   return fetch(`http://localhost:3000/api/beers/${deletedBeer}`, {
-    method: 'delete',
+    method: 'DELETE',
+    headers: {'Content-Type': 'application/json'},
   })
   .then(response => response.json())
   .then (beer => {
@@ -52,6 +53,11 @@ function deleteBeer() {
     $(this).parent().remove();
   })
 };
+
+//Post a new beer
+function postBeer(event) {
+  event.preventDefault();
+}
 
 deleteBeer();
 deleteRequest();
