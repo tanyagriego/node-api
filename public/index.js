@@ -11,22 +11,6 @@
     })
 })();  
 
-//This function creates a fetch request to the server
-function fetchBeer (searchTermVal) {
-    fetch(`http://localhost:3000/api/beers?type=${searchTermVal}`)
-    .then(function(response) {
-        return response.json();
-      })
-      .then(function(myJson) {
-        //something like linke 68 in JS— should be a function where you grab the data and use it. 
-      });
-}
-  
-
-//This function submits a DELETE request for beers
-function deleteBeer() {
-
-}
 //This function submits a DELETE request for businesses
 function deleteBusiness() {
     
@@ -53,18 +37,13 @@ function addBusiness() {
 }
 
 //This function creates a container for the business data which is eventually appended to the DOM
-function appendBuinessData (business) {
-    return `<h2 class="business-name">"${business.business_name}"</h2>
-            <div>
-                <p class="business-website">"${business.business_webiste}"</p>
-                <p class="business-neighborhood">"${business.business_neighborhood}"</p>
-                <p class="business-address">"${business.business_address}"</p>
-                <p class="business-open">"${business.hours_open}"</p>
-                <p class="business-close">"${business.hours_close}"/p>
-            </div>`
-};
-
-function displayApiData (business) {
-    console.log("Business Data:", );
-    const results = business
-}
+// function appendBuinessData (business) {
+//     return `<h2 class="business-name">"${business.business_name}"</h2>
+//             <div>
+//                 <p class="business-website">"${business.business_webiste}"</p>
+//                 <p class="business-neighborhood">"${business.business_neighborhood}"</p>
+//                 <p class="business-address">"${business.business_address}"</p>
+//                 <p class="business-open">"${business.hours_open}"</p>
+//                 <p class="business-close">"${business.hours_close}"/p>
+//             </div>`
+// };
