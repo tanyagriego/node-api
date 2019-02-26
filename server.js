@@ -43,15 +43,14 @@ app.use('/api/beers/', beersRouter);
 const path=require('path');
 app.use('/beers', express.static(path.join(__dirname, 'public/beers.html')));
 
-////Will be used to test authenticaion later in project DO NOT DELETE
-//const jwtAuth = passport.authenticate('jwt', { session: false });
+const jwtAuth = passport.authenticate('jwt', { session: false });
 // A protected endpoint which needs a valid JWT to access it
 
-// app.get('/api/protected', jwtAuth, (req, res) => {
-//   return res.json({
-//     data: 'Sup, yo.'
-//   });
-// });
+app.get('/api/protected', jwtAuth, (req, res) => {
+  return res.json({
+    data: 'auth test, server.js'
+  });
+});
 
 app.use('*', (req, res) => {
   return res.status(404).json({ message: 'Not Found' });
