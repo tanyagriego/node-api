@@ -16,7 +16,7 @@
     })
 
 //This function registers a click event and grabs the user's input for registration
-    $(".registration").submit (event => {
+    $(".register-container").submit (event => {
         console.log("registration function fired");
         event.preventDefault();
         const username = $(event.currentTarget).find(".username").val();
@@ -43,12 +43,12 @@ function registerUser(user) {
   .then(auth => {
     console.log('we are in there. Go us!', auth);
     localStorage.setItem('currentUser', user);
-    getAuthToken(user);
+    // getAuthToken(user);
   });
 }
 
 function getAuthToken(user) {
-  // const authtoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWM2ZjAxMmQ3MzY4NWM2Yzk5NGY2NWUwIiwidXNlcm5hbWUiOiJwaWVycmUiLCJmaXJzdF9uYW1lIjoiYm9iYnkiLCJsYXN0X25hbWUiOiJ0YWJsZXMifSwiaWF0IjoxNTUwNzgwMjM2LCJleHAiOjE1NTEzODUwMzYsInN1YiI6InBpZXJyZSJ9.FnTg6H1mgA1_Tekce7-ryNvBhQ7ebkamBlh_6xBa_-U';
+  const authtoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWM2ZjAxMmQ3MzY4NWM2Yzk5NGY2NWUwIiwidXNlcm5hbWUiOiJwaWVycmUiLCJmaXJzdF9uYW1lIjoiYm9iYnkiLCJsYXN0X25hbWUiOiJ0YWJsZXMifSwiaWF0IjoxNTUwNzgwMjM2LCJleHAiOjE1NTEzODUwMzYsInN1YiI6InBpZXJyZSJ9.FnTg6H1mgA1_Tekce7-ryNvBhQ7ebkamBlh_6xBa_-U';
   const {username, password } = user;
   return fetch('http://localhost:3000/api/auth/login', {
     method: 'POST',

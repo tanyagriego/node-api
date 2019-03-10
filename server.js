@@ -41,7 +41,7 @@ app.use('/api/users/', usersRouter);
 app.use('/api/beers/', beersRouter);
 
 const path=require('path');
-app.use('/beers', express.static(path.join(__dirname, 'public/beers.html')));
+app.use('/beers', express.static(path.join(__dirname, 'public/beer_list.html')));
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
 // A protected endpoint which needs a valid JWT to access it
