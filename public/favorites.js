@@ -1,17 +1,3 @@
-// (function fetchBeer() {
-//   let searchTermValue = localStorage.getItem('searchTermVal');
-//   searchTermValue = JSON.parse(searchTermValue);
-//   return fetch(`http://localhost:3000/api/beers?type=${searchTermValue}`, {
-//     method: 'GET',
-//     headers: {"Accept": "application/json", 'Content-Type': 'application/json'},
-//     mode: 'cors'
-//   })
-//   .then(response => response.json())
-//   .then(beers => {
-//     renderBeers(beers);
-//   });
-// })();
-
 (function fetchBeer() {
   let searchTermValue = localStorage.getItem('searchTermVal');
   searchTermValue = JSON.parse(searchTermValue);

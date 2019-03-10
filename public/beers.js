@@ -1,19 +1,5 @@
-// (function fetchBeer() {
-//   let searchTermValue = localStorage.getItem('searchTermVal');
-//   searchTermValue = JSON.parse(searchTermValue);
-//   return fetch(`http://localhost:3000/api/beers?type=${searchTermValue}`, {
-//     method: 'GET',
-//     headers: {"Accept": "application/json", 'Content-Type': 'application/json'},
-//     mode: 'cors'
-//   })
-//   .then(response => response.json())
-//   .then(beers => {
-//     renderBeers(beers);
-//   });
-// })();
-
 (function fetchBeer() {
-    let searchTermValue = localStorage.getItem('searchTermVal');
+   let searchTermValue = localStorage.getItem('searchTermVal');
     searchTermValue = JSON.parse(searchTermValue);
     // const authToken = JSON.parse(localStorage.getItem('authToken'));
   
@@ -33,7 +19,7 @@
     .then(beers => {
       renderBeers(beers);
     });
-    
+
   })();
 
   function renderBeers(beers) {
@@ -47,7 +33,41 @@
             <li class= "beer-list-item">${beer.associated_business}</li>
             <li class= "beer-list-item">${beer.on_draft}</li></br>
           </ul>
+          <button class="favorite-button" data-beer-id="${beer._id}">Favorite</button>
         </div>`
       );
     });
   }
+
+  function saveFavoriteBeerRequest(favoriteBeerId) {
+    console.log("saveFavroiteBeerRequest function fired");
+    return fetch(`http://localhost:3000/api/users/${userId}/favorites`, {
+        method: 'POST',
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        mode: 'cors',
+        body: JSON.stringify({
+          favorite_beer_id: favoriteBeerId
+        })
+      })
+      .then(response => response.json())
+      .then(auth => {
+        console.log('we are in there. Go us!', auth);
+        localStorage.setItem('currentUser', user);
+        // getAuthToken(user);
+      });
+      }
+
+  function favoriteBeer() {
+    console.log("Favorite function fired");
+   $('#beersList').on('click', ".favorite-button", function() {
+      let $favorite = $(this).parent();
+      let beerId = $(this).attr('data-beer-id');
+      saveFavoriteBeerRequest(beerId, $favorite);
+    })
+  };
+  
+  favoriteBeer();
+  

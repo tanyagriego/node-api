@@ -8,6 +8,9 @@ const router = express.Router();
 
 const jsonParser = bodyParser.json();
 
+// This would be common convention for restful endpoints
+// users/<userId>/favorites
+
 // Post to register a new user
 router.post('/', jsonParser, (req, res) => {
   const requiredFields = ['username', 'password'];
@@ -132,5 +135,26 @@ router.get('/', (req, res) => {
     .then(users => res.json(users.map(user => user.serialize())))
     .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
+
+// Post the favorite to a specific user
+router.get(`/:id/favorites`, (req, res) => {
+  // The favorted beer id will be on the request (req) object
+  // User id will come from req.params.id
+  const favoriteBeerId = req.body.favorite_beer_id
+  const userId = req.params.id
+
+  // Check out beer/router.js for an example of a put request and copy that shit
+  // TODO: Create a put request to store in DB
+  // Get the user from the db, then populate a new user object with added favorite beer to list
+  const newUser = {
+    ...stuffFromDb,
+    favorites: [
+      favoriteBeerId
+    ],
+  }
+  // Users
+  //  .findByIdAndUpdate(userId, newUser)
+  //  .then(()
+})
 
 module.exports = {router};
