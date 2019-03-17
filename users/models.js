@@ -25,6 +25,7 @@ userSchema.methods.serialize = function() {
     username: this.username || '',
     first_name: this.first_name || '',
     last_name: this.last_name || '',
+    favorites: this.favorites ||[]
   };
 };
 

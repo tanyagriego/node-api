@@ -68,7 +68,7 @@ function getAuthToken(user) {
 }
 
 function talkToProtected(username, password) {
-  return fetch('http://localhost:3000/api/protected', {
+  return fetch('http://localhost:3000/api/ß', {
     method: 'GET',
     headers: {
       "Accept": "application/json",

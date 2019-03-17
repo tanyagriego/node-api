@@ -143,18 +143,37 @@ router.get(`/:id/favorites`, (req, res) => {
   const favoriteBeerId = req.body.favorite_beer_id
   const userId = req.params.id
 
-  // Check out beer/router.js for an example of a put request and copy that shit
   // TODO: Create a put request to store in DB
   // Get the user from the db, then populate a new user object with added favorite beer to list
-  const newUser = {
-    ...stuffFromDb,
-    favorites: [
-      favoriteBeerId
-    ],
-  }
   // Users
   //  .findByIdAndUpdate(userId, newUser)
   //  .then(()
 })
+
+router.put(`/:id/favorites`, jsonParser, (req, res) => {
+  const favoriteBeerId = req.body.favorite_beer_id;
+  const userId = '5c8573bf2ad49f3ae0b0bf40';
+
+  console.log("Put request:", req.body);
+  let newFavorites;
+  return User
+  .findById(userId)
+  .then(user => {
+    const {favorites} = user;
+    console.log('user==================================\n:', user);
+    newFavorites = favorites?[...user.favorites, favoriteBeerId]:[favoriteBeerId]
+    User
+    .findByIdAndUpdate(userId, {favorites: newFavorites})
+    .then((updatedUser) => {
+      console.log('updated user:', updatedUser);
+      res.status(204).json(updatedUser);
+  })
+  .catch(err => {
+    console.log("error:", err)
+    res.status(500).json({error: err.message});
+    })
+  })
+});
+
 
 module.exports = {router};

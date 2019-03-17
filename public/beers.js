@@ -41,8 +41,9 @@
 
   function saveFavoriteBeerRequest(favoriteBeerId) {
     console.log("saveFavroiteBeerRequest function fired");
+    const userId = '5c8ec01c47b7cc5d26badcd4';
     return fetch(`http://localhost:3000/api/users/${userId}/favorites`, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json"
