@@ -33,15 +33,6 @@ router.get('/', (req, res) => {
   })
 });
 
-router.get('/beer/:beer_id', (req, res) => {
-  return Beers
-    .findById(req.param.beer_id)
-    .then(beer_result => res.json(beer_result))
-    .catch(err => {
-      res.status(500).json({error: err.message});
-    })
-})
-
 router.delete('/:id', (req, res) => {
   console.log("Delete Request:", req.params.id)
   return Beers
