@@ -1,12 +1,9 @@
-(function fetchBeer() {
-  let searchTermValue = localStorage.getItem('searchTermVal');
-  searchTermValue = JSON.parse(searchTermValue);
+(function fetchFavorites() {
+  
   // const authToken = JSON.parse(localStorage.getItem('authToken'));
-
-
   const authtoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWM2ZjAxMmQ3MzY4NWM2Yzk5NGY2NWUwIiwidXNlcm5hbWUiOiJwaWVycmUiLCJmaXJzdF9uYW1lIjoiYm9iYnkiLCJsYXN0X25hbWUiOiJ0YWJsZXMifSwiaWF0IjoxNTUwNzgwMjM2LCJleHAiOjE1NTEzODUwMzYsInN1YiI6InBpZXJyZSJ9.FnTg6H1mgA1_Tekce7-ryNvBhQ7ebkamBlh_6xBa_-U';
-
-  return fetch(`http://localhost:3000/api/beers?type=${searchTermValue}`, {
+  const mockUser = localStorage.getItem('currentUser');
+  return fetch(`http://localhost:3000/api/users/${mockUser}/favorites`, {
     method: 'GET',
     headers: {
       "Accept": "application/json",
@@ -17,10 +14,33 @@
   })
   .then(response => response.json())
   .then(beers => {
+    // Right here, beers is an array of beer ids
+    // Example: [ abc123, 987ghb ]
+    
+    // In order to call renderBeers, we need an array of beer objects
+    // Example: [{
+    //   display_name: "Beer 1"
+    //   brewer_name: ""
+    //   associated_business: ""
+    //}]
+
     renderBeers(beers);
   });
-  
 })();
+
+function fetchBeer(beerId) {
+  const authtoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWM2ZjAxMmQ3MzY4NWM2Yzk5NGY2NWUwIiwidXNlcm5hbWUiOiJwaWVycmUiLCJmaXJzdF9uYW1lIjoiYm9iYnkiLCJsYXN0X25hbWUiOiJ0YWJsZXMifSwiaWF0IjoxNTUwNzgwMjM2LCJleHAiOjE1NTEzODUwMzYsInN1YiI6InBpZXJyZSJ9.FnTg6H1mgA1_Tekce7-ryNvBhQ7ebkamBlh_6xBa_-U';
+  return fetch(`http://localhost:3000/api/beers/${beerId}`, {
+  method: 'GET',
+    headers: {
+      "Accept": "application/json",
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authtoken}`
+    },
+    mode: 'cors'
+  })
+  .then(response => response.json())
+}
 
 function renderBeers(beers) {
   beers.forEach(beer => {
@@ -56,11 +76,6 @@ function deleteBeer() {
     deleteRequest(beerId, $deletedObj);
   })
 };
-
-//Post a new beer
-// function postBeer(event) {
-//   event.preventDefault();
-// }
 
 deleteBeer();
 

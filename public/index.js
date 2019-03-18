@@ -5,6 +5,7 @@
 
 //This function registers a click event and grabs the user's input/beer query
 (function () {
+  localStorage.setItem('currentUser', '5c8573bf2ad49f3ae0b0bf40');
     $(".search-form").submit (event => {
         console.log("Submit function fired");
         event.preventDefault();

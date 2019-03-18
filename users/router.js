@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const {User} = require('./models');
+const { Beers } = require("../beers/models")
 
 const router = express.Router();
 
@@ -140,15 +141,25 @@ router.get('/', (req, res) => {
 router.get(`/:id/favorites`, (req, res) => {
   // The favorted beer id will be on the request (req) object
   // User id will come from req.params.id
-  const favoriteBeerId = req.body.favorite_beer_id
+  // const favoriteBeerId = req.body.favorite_beer_id
   const userId = req.params.id
 
+  return User
+  .findById(userId)
+  .then(user => {
+    // [ asdf, asdf]
+    // [ { }, { }]
+    
+  Beers.find( { _id: { $in: user.favorites }} )
+    .then(result => res.json(result))
+  })
+  .catch(err => res.status(500).json({message: err.message}))
   // TODO: Create a put request to store in DB
   // Get the user from the db, then populate a new user object with added favorite beer to list
   // Users
   //  .findByIdAndUpdate(userId, newUser)
   //  .then(()
-})
+  })
 
 router.put(`/:id/favorites`, jsonParser, (req, res) => {
   const favoriteBeerId = req.body.favorite_beer_id;

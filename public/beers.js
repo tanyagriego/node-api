@@ -3,7 +3,6 @@
     searchTermValue = JSON.parse(searchTermValue);
     // const authToken = JSON.parse(localStorage.getItem('authToken'));
   
-  
     const authtoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWM2ZjAxMmQ3MzY4NWM2Yzk5NGY2NWUwIiwidXNlcm5hbWUiOiJwaWVycmUiLCJmaXJzdF9uYW1lIjoiYm9iYnkiLCJsYXN0X25hbWUiOiJ0YWJsZXMifSwiaWF0IjoxNTUwNzgwMjM2LCJleHAiOjE1NTEzODUwMzYsInN1YiI6InBpZXJyZSJ9.FnTg6H1mgA1_Tekce7-ryNvBhQ7ebkamBlh_6xBa_-U';
   
     return fetch(`http://localhost:3000/api/beers?type=${searchTermValue}`, {
@@ -41,7 +40,7 @@
 
   function saveFavoriteBeerRequest(favoriteBeerId) {
     console.log("saveFavroiteBeerRequest function fired");
-    const userId = '5c8ec01c47b7cc5d26badcd4';
+    const userId = '5c8573bf2ad49f3ae0b0bf40';
     return fetch(`http://localhost:3000/api/users/${userId}/favorites`, {
         method: 'PUT',
         headers: {
@@ -66,6 +65,7 @@
    $('#beersList').on('click', ".favorite-button", function() {
       let $favorite = $(this).parent();
       let beerId = $(this).attr('data-beer-id');
+      console.log('favorite beer id:', beerId);
       saveFavoriteBeerRequest(beerId, $favorite);
     })
   };
