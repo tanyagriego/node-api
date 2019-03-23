@@ -1,4 +1,4 @@
-@media screen and (max-width: 700px) {
+/* @media screen and (max-width: 700px) { */
     section.search-by-text{
         background: url("../images/background.jpg");
         background-position: center center;
@@ -58,7 +58,7 @@
         flex-direction: row;
         justify-content: center;
         width: 100%;
-        height: 100vh;
+        height: 25vh;
     }
     #search-icons {
         order: 1;
@@ -66,7 +66,7 @@
         background-color: #F1A334;
         width: 33.33%;
     }
-}
+/* } */
 
 @media only screen and (min-width: 700px) {
 

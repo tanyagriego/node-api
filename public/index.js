@@ -1,6 +1,6 @@
 //This function submits a GET request/registers a click event and grabs the user's input
 
-// const authtoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWM2ZjAxMmQ3MzY4NWM2Yzk5NGY2NWUwIiwidXNlcm5hbWUiOiJwaWVycmUiLCJmaXJzdF9uYW1lIjoiYm9iYnkiLCJsYXN0X25hbWUiOiJ0YWJsZXMifSwiaWF0IjoxNTUwNzgwMjM2LCJleHAiOjE1NTEzODUwMzYsInN1YiI6InBpZXJyZSJ9.FnTg6H1mgA1_Tekce7-ryNvBhQ7ebkamBlh_6xBa_-U';
+ const authtoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWM2ZjAxMmQ3MzY4NWM2Yzk5NGY2NWUwIiwidXNlcm5hbWUiOiJwaWVycmUiLCJmaXJzdF9uYW1lIjoiYm9iYnkiLCJsYXN0X25hbWUiOiJ0YWJsZXMifSwiaWF0IjoxNTUwNzgwMjM2LCJleHAiOjE1NTEzODUwMzYsInN1YiI6InBpZXJyZSJ9.FnTg6H1mgA1_Tekce7-ryNvBhQ7ebkamBlh_6xBa_-U';
 
 
 //This function registers a click event and grabs the user's input/beer query
@@ -26,6 +26,16 @@
         const last_name = $(event.currentTarget).find(".last-name").val();
         const user = {username, password, first_name, last_name};
         registerUser(user);
+    })
+
+  //This function allows an existing user to log in
+    $(".login-container").submit (event => {
+        console.log("login function fired");
+        event.preventDefault();
+        const username = $(event.currentTarget).find(".username").val();
+        const password = $(event.currentTarget).find(".password").val();
+        const existingUser = {username, password};
+        talkToProtected(existingUser);
     })
 })();
 
@@ -69,7 +79,7 @@ function getAuthToken(user) {
 }
 
 function talkToProtected(username, password) {
-  return fetch('http://localhost:3000/api/ß', {
+  return fetch('http://localhost:3000/api/users/', {
     method: 'GET',
     headers: {
       "Accept": "application/json",
@@ -77,7 +87,7 @@ function talkToProtected(username, password) {
       'Authorization': 'Bearer ' + authtoken
     },
     mode: 'cors',
-    body: {username, password}
+    // body: {username, password}
   })
   .then(response => response.json())
   .then(auth => {
