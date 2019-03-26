@@ -50,7 +50,7 @@ app.use('/favorites', express.static(path.join(__dirname, 'public/favorites_list
 const jwtAuth = passport.authenticate('jwt', { session: false });
 // A protected endpoint which needs a valid JWT to access it
 
-app.get('/api/protected', jwtAuth, (req, res) => {
+app.get('/api/favorites', jwtAuth, (req, res) => {
   return res.json({
     data: 'auth test, server.js'
   });

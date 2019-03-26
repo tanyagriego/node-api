@@ -35,10 +35,11 @@
         const username = $(event.currentTarget).find(".username").val();
         const password = $(event.currentTarget).find(".password").val();
         const existingUser = {username, password};
-        talkToProtected(existingUser);
+        getAuthToken(existingUser);
     })
 })();
 
+//somewhere in this function, we will also need to log in the new user
 function registerUser(user) {
   console.log('registerUser: ', user);
   return fetch('http://localhost:3000/api/users/', {
@@ -54,12 +55,14 @@ function registerUser(user) {
   .then(auth => {
     console.log('we are in there. Go us!', auth);
     localStorage.setItem('currentUser', user);
-    // getAuthToken(user);
+    getAuthToken(user);
   });
 }
 
+
+//post user to this this endpoint
 function getAuthToken(user) {
-  const authtoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWM2ZjAxMmQ3MzY4NWM2Yzk5NGY2NWUwIiwidXNlcm5hbWUiOiJwaWVycmUiLCJmaXJzdF9uYW1lIjoiYm9iYnkiLCJsYXN0X25hbWUiOiJ0YWJsZXMifSwiaWF0IjoxNTUwNzgwMjM2LCJleHAiOjE1NTEzODUwMzYsInN1YiI6InBpZXJyZSJ9.FnTg6H1mgA1_Tekce7-ryNvBhQ7ebkamBlh_6xBa_-U';
+  const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWM2ZjAxMmQ3MzY4NWM2Yzk5NGY2NWUwIiwidXNlcm5hbWUiOiJwaWVycmUiLCJmaXJzdF9uYW1lIjoiYm9iYnkiLCJsYXN0X25hbWUiOiJ0YWJsZXMifSwiaWF0IjoxNTUwNzgwMjM2LCJleHAiOjE1NTEzODUwMzYsInN1YiI6InBpZXJyZSJ9.FnTg6H1mgA1_Tekce7-ryNvBhQ7ebkamBlh_6xBa_-U';
   const {username, password } = user;
   return fetch('http://localhost:3000/api/auth/login', {
     method: 'POST',
@@ -78,8 +81,9 @@ function getAuthToken(user) {
   });
 }
 
+//if user is authenticated above, give them access to this endpoint
 function talkToProtected(username, password) {
-  return fetch('http://localhost:3000/api/users/', {
+  return fetch('http://localhost:3000/api/favorites', {
     method: 'GET',
     headers: {
       "Accept": "application/json",
@@ -87,7 +91,6 @@ function talkToProtected(username, password) {
       'Authorization': 'Bearer ' + authtoken
     },
     mode: 'cors',
-    // body: {username, password}
   })
   .then(response => response.json())
   .then(auth => {

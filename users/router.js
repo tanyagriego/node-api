@@ -152,7 +152,8 @@ router.get(`/:id/favorites`, (req, res) => {
 
 router.put(`/:id/favorites`, jsonParser, (req, res) => {
   const favoriteBeerId = req.body.favorite_beer_id;
-  const userId = '5c8573bf2ad49f3ae0b0bf40';
+  // const userId = '5c8573bf2ad49f3ae0b0bf40';
+  const userId = req.params.id;
 
   console.log("Put request:", req.body);
   let newFavorites;

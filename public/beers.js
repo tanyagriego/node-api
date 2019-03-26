@@ -40,7 +40,8 @@
 
   function saveFavoriteBeerRequest(favoriteBeerId) {
     console.log("saveFavroiteBeerRequest function fired");
-    const userId = '5c8573bf2ad49f3ae0b0bf40';
+    // const userId = '5c8573bf2ad49f3ae0b0bf40';
+    const userId = id._id;
     return fetch(`http://localhost:3000/api/users/${userId}/favorites`, {
         method: 'PUT',
         headers: {
@@ -52,7 +53,7 @@
           favorite_beer_id: favoriteBeerId
         })
       })
-      .then(response => response.json())
+      // .then(response => response.json())
       .then(auth => {
         console.log('we are in there. Go us!', auth);
         localStorage.setItem('currentUser', user);
