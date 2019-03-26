@@ -3,10 +3,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const {User} = require('./models');
+const { Beers } = require("../beers/models")
 
 const router = express.Router();
 
 const jsonParser = bodyParser.json();
+
+// This would be common convention for restful endpoints
+// users/<userId>/favorites
 
 // Post to register a new user
 router.post('/', jsonParser, (req, res) => {
@@ -132,5 +136,45 @@ router.get('/', (req, res) => {
     .then(users => res.json(users.map(user => user.serialize())))
     .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
+
+// Post the favorite to a specific user
+router.get(`/:id/favorites`, (req, res) => {
+  const userId = req.params.id
+
+  return User
+  .findById(userId)
+  .then(user => { 
+    Beers.find( { _id: { $in: user.favorites }} )
+      .then(result => res.json(result))
+    })
+  .catch(err => res.status(500).json({message: err.message}))
+  })
+
+router.put(`/:id/favorites`, jsonParser, (req, res) => {
+  const favoriteBeerId = req.body.favorite_beer_id;
+  // const userId = '5c8573bf2ad49f3ae0b0bf40';
+  const userId = req.params.id;
+
+  console.log("Put request:", req.body);
+  let newFavorites;
+  return User
+  .findById(userId)
+  .then(user => {
+    const {favorites} = user;
+    console.log('user==================================\n:', user);
+    newFavorites = favorites?[...user.favorites, favoriteBeerId]:[favoriteBeerId]
+    User
+    .findByIdAndUpdate(userId, {favorites: newFavorites})
+    .then((updatedUser) => {
+      console.log('updated user:', updatedUser);
+      res.status(204).json(updatedUser);
+  })
+  .catch(err => {
+    console.log("error:", err)
+    res.status(500).json({error: err.message});
+    })
+  })
+});
+
 
 module.exports = {router};

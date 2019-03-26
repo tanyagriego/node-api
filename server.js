@@ -17,6 +17,9 @@ const { PORT, DATABASE_URL } = require('./config');
 const app = express();
 app.use(express.static('public'));
 app.listen(process.env.PORT || 8080);
+// app.listen(process.env.PORT || 3000, function(){
+//   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+// });
 
 
 // Logging
@@ -41,17 +44,17 @@ app.use('/api/users/', usersRouter);
 app.use('/api/beers/', beersRouter);
 
 const path=require('path');
-app.use('/beers', express.static(path.join(__dirname, 'public/beers.html')));
+app.use('/beers', express.static(path.join(__dirname, 'public/beer_list.html')));
+app.use('/favorites', express.static(path.join(__dirname, 'public/favorites_list.html')));
 
-////Will be used to test authenticaion later in project DO NOT DELETE
-//const jwtAuth = passport.authenticate('jwt', { session: false });
+const jwtAuth = passport.authenticate('jwt', { session: false });
 // A protected endpoint which needs a valid JWT to access it
 
-// app.get('/api/protected', jwtAuth, (req, res) => {
-//   return res.json({
-//     data: 'Sup, yo.'
-//   });
-// });
+app.get('/api/favorites', jwtAuth, (req, res) => {
+  return res.json({
+    data: 'auth test, server.js'
+  });
+});
 
 app.use('*', (req, res) => {
   return res.status(404).json({ message: 'Not Found' });

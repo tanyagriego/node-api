@@ -14,7 +14,7 @@
                     <p class="app-title">GF PINTS</p>
                 </div>           
                 <form action="#" class="search-form" aria-controls="search_results">                
-                    <input type="text" class="search-box" placeholder="Search by beer type or neighborhood" aria-label="Search-YouTube" class="js-query">
+                    <input type="text" class="search-box" placeholder="Search by beer type or neighborhood">
                     <button type="submit" class="submit-button">Search</button>
                 </form>
             </section>
@@ -27,19 +27,29 @@
                 </div>
             </section>
 
-            <section role= "region" class="login">
-                <div class="login-container">
-                    <label for="username">Username</label>
-                    <input type="text" aria-placeholder="Enter Username" name="username" required></input>
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
-                    <button type="submit">Login</button>
-                    <input type="checkbox" checked="checked" name="remember">Remember me</input>
-                </div>
+            <section role= "region" class="register">
+                <form class="register-container">
+                    <input type="text" class="first-name" placeholder="Enter First Name" name="first-name" required></input>
+                    <input type="text" class="last-name" placeholder="Enter Last Name" name="last-name" required></input>
+                    <input type="text" class="username" placeholder="Enter Username" name="username" required></input>
+                    <input type="password" class="password" placeholder="Enter Password" name="password" required>
+                    <button type="submit" class="registration">Sign Up</button>
+                    <!-- <input type="checkbox" checked="checked" name="remember">Remember me</input> -->
+                </form>
             </section>
+
+            <section role= "region" class="exisiting-user">
+                <form class="login-container">
+                    <input type="text" class="username" placeholder="User Name" name="username" required></input>
+                    <input type="password" class="password" placeholder="Enter Password" name="password" required>
+                    <button type="submit" value="login" class="Login">Sign In</button>
+                    <input type="checkbox" checked="checked" name="remember">Remember me</input>
+                </form>
+            </section>
+
         </main>     
     </body>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src= "index.js" type="text/javascript"></script>
-    <script src= "beers.js" type="text/javascript"></script>
+    <script src= "favorites.js" type="text/javascript"></script>
 </html>

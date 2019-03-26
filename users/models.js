@@ -16,7 +16,7 @@ const userSchema = mongoose.Schema({
   },
   first_name: {type: String, default: ''},
   last_name: {type: String, default: ''},
-  favorites: {type: Array}
+  favorites: {type: Array, default: []}
 });
 
 userSchema.methods.serialize = function() {
@@ -25,6 +25,7 @@ userSchema.methods.serialize = function() {
     username: this.username || '',
     first_name: this.first_name || '',
     last_name: this.last_name || '',
+    favorites: this.favorites ||[]
   };
 };
 
