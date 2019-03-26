@@ -28,17 +28,6 @@
         registerUser(user);
     })
 
-  //This function allows an existing user to log in
-    $(".login-container").submit (event => {
-        console.log("login function fired");
-        event.preventDefault();
-        const username = $(event.currentTarget).find(".username").val();
-        const password = $(event.currentTarget).find(".password").val();
-        const existingUser = {username, password};
-        getAuthToken(existingUser);
-    })
-})();
-
 //somewhere in this function, we will also need to log in the new user
 function registerUser(user) {
   console.log('registerUser: ', user);
@@ -59,6 +48,16 @@ function registerUser(user) {
   });
 }
 
+  //This function allows an existing user to log in
+  $(".login-container").submit (event => {
+    console.log("login function fired");
+    event.preventDefault();
+    const username = $(event.currentTarget).find(".username").val();
+    const password = $(event.currentTarget).find(".password").val();
+    const existingUser = {username, password};
+    getAuthToken(existingUser);
+})
+})();
 
 //post user to this this endpoint
 function getAuthToken(user) {
