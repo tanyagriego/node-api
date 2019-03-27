@@ -1,18 +1,17 @@
-//This function submits a GET request/registers a click event and grabs the user's input
+'use strict';
+const {User} = require('./models');
+const {router} = require('./router');
 
- const authtoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWM2ZjAxMmQ3MzY4NWM2Yzk5NGY2NWUwIiwidXNlcm5hbWUiOiJwaWVycmUiLCJmaXJzdF9uYW1lIjoiYm9iYnkiLCJsYXN0X25hbWUiOiJ0YWJsZXMifSwiaWF0IjoxNTUwNzgwMjM2LCJleHAiOjE1NTEzODUwMzYsInN1YiI6InBpZXJyZSJ9.FnTg6H1mgA1_Tekce7-ryNvBhQ7ebkamBlh_6xBa_-U';
-
+module.exports = {User, router};
 
 //This function registers a click event and grabs the user's input/beer query
 (function () {
-  localStorage.setItem('currentUser', '5c8573bf2ad49f3ae0b0bf40');
     $(".search-form").submit (event => {
         console.log("Submit function fired");
         event.preventDefault();
         const searchTermVal = $(event.currentTarget).find(".search-box")
         .val();
         localStorage.setItem('searchTermVal', JSON.stringify(searchTermVal));
-        // fetchBeer();
         window.location.href = "http://localhost:3000/beers";
     })
 
@@ -61,8 +60,6 @@ function registerUser(user) {
 
 //post user to this this endpoint
 function getAuthToken(user) {
-  const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWM2ZjAxMmQ3MzY4NWM2Yzk5NGY2NWUwIiwidXNlcm5hbWUiOiJwaWVycmUiLCJmaXJzdF9uYW1lIjoiYm9iYnkiLCJsYXN0X25hbWUiOiJ0YWJsZXMifSwiaWF0IjoxNTUwNzgwMjM2LCJleHAiOjE1NTEzODUwMzYsInN1YiI6InBpZXJyZSJ9.FnTg6H1mgA1_Tekce7-ryNvBhQ7ebkamBlh_6xBa_-U';
-  const {username, password } = user;
   return fetch('http://localhost:3000/api/auth/login', {
     method: 'POST',
     headers: {
@@ -70,24 +67,24 @@ function getAuthToken(user) {
       'Content-Type': 'application/json'
     },
     mode: 'cors',
-    body: JSON.stringify({username, password})
+    body: JSON.stringify(user)
   })
   .then(response => response.json())
   .then(auth => {
     localStorage.setItem('authToken', auth.authToken);
-    const {username, password} = user;
-    talkToProtected(username, password)
+    talkToProtected()
   });
 }
 
 //if user is authenticated above, give them access to this endpoint
-function talkToProtected(username, password) {
+function talkToProtected() {
+  const authToken = localStorage.getItem('authToken');
   return fetch('http://localhost:3000/api/favorites', {
     method: 'GET',
     headers: {
       "Accept": "application/json",
       "Content-Type": "application/json",
-      'Authorization': 'Bearer ' + authtoken
+      'Authorization': 'Bearer ' + authToken
     },
     mode: 'cors',
   })

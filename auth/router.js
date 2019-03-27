@@ -8,7 +8,7 @@ const config = require('../config');
 const router = express.Router();
 
 const createAuthToken = function(user) {
-  console.log(config.JWT_EXPIRY, '9389892892893892839829');
+  // console.log(config.JWT_EXPIRY, '9389892892893892839829');
   return jwt.sign({user}, config.JWT_SECRET, {
     subject: user.username,
     expiresIn: config.JWT_EXPIRY,
@@ -28,6 +28,7 @@ router.post('/login', localAuth, (req, res) => {
     username: req.user.username
   };
   res.status(200).json({authToken, user});
+  res.json({authToken});
 });
 
 const jwtAuth = passport.authenticate('jwt', {session: false});

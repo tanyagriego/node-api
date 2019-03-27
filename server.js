@@ -42,6 +42,7 @@ passport.use(jwtStrategy);
 app.use('/api/businesses/', businessesRouter);
 app.use('/api/users/', usersRouter);
 app.use('/api/beers/', beersRouter);
+app.use('/api/auth/', authRouter);
 
 const path=require('path');
 app.use('/beers', express.static(path.join(__dirname, 'public/beer_list.html')));
