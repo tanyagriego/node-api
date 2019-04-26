@@ -1,9 +1,3 @@
-'use strict';
-const {User} = require('./models');
-const {router} = require('./router');
-
-module.exports = {User, router};
-
 //This function registers a click event and grabs the user's input/beer query
 (function () {
     $(".search-form").submit (event => {
@@ -42,6 +36,7 @@ function registerUser(user) {
   .then(response => response.json())
   .then(auth => {
     console.log('we are in there. Go us!', auth);
+    console.log("USER==================== ", user)
     localStorage.setItem('currentUser', user);
     getAuthToken(user);
   });
@@ -54,6 +49,7 @@ function registerUser(user) {
     const username = $(event.currentTarget).find(".username").val();
     const password = $(event.currentTarget).find(".password").val();
     const existingUser = {username, password};
+    localStorage.setItem("userName", username)
     getAuthToken(existingUser);
   })
 })();
@@ -70,26 +66,13 @@ function getAuthToken(user) {
     body: JSON.stringify(user)
   })
   .then(response => response.json())
-  .then(auth => {
-    localStorage.setItem('authToken', auth.authToken);
-    talkToProtected()
+  .then(response => {
+    localStorage.setItem('authToken', response.authToken);
+    localStorage.setItem('userId', response.user.id);
+    goToFavorites();
   });
 }
 
-//if user is authenticated above, give them access to this endpoint
-function talkToProtected() {
-  const authToken = localStorage.getItem('authToken');
-  return fetch('http://localhost:3000/api/favorites', {
-    method: 'GET',
-    headers: {
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-      'Authorization': 'Bearer ' + authToken
-    },
-    mode: 'cors',
-  })
-  .then(response => response.json())
-  .then(auth => {
-    console.log(auth);
-  });
+function goToFavorites() {
+  window.location.href = "favorites";
 }

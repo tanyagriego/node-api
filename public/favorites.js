@@ -2,8 +2,8 @@
   
   // const authToken = JSON.parse(localStorage.getItem('authToken'));
   const authtoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWM2ZjAxMmQ3MzY4NWM2Yzk5NGY2NWUwIiwidXNlcm5hbWUiOiJwaWVycmUiLCJmaXJzdF9uYW1lIjoiYm9iYnkiLCJsYXN0X25hbWUiOiJ0YWJsZXMifSwiaWF0IjoxNTUwNzgwMjM2LCJleHAiOjE1NTEzODUwMzYsInN1YiI6InBpZXJyZSJ9.FnTg6H1mgA1_Tekce7-ryNvBhQ7ebkamBlh_6xBa_-U';
-  const mockUser = localStorage.getItem('currentUser');
-  return fetch(`http://localhost:3000/api/users/${mockUser}/favorites`, {
+  const userId = localStorage.getItem('userId');
+  return fetch(`http://localhost:3000/api/users/${userId}/favorites`, {
     method: 'GET',
     headers: {
       "Accept": "application/json",

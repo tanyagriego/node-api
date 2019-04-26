@@ -2,15 +2,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const {User} = require('./models');
+const { User } = require('./models');
 const { Beers } = require("../beers/models")
 
 const router = express.Router();
 
 const jsonParser = bodyParser.json();
-
-// This would be common convention for restful endpoints
-// users/<userId>/favorites
 
 // Post to register a new user
 router.post('/', jsonParser, (req, res) => {
@@ -60,8 +57,6 @@ router.post('/', jsonParser, (req, res) => {
     },
     password: {
       min: 6,
-      // bcrypt truncates after 72 characters, so let's not give the illusion
-      // of security by storing extra (unused) info
       max: 72
     }
   };
@@ -153,7 +148,6 @@ router.get(`/:id/favorites`, (req, res) => {
 
 router.put(`/:id/favorites`, jsonParser, (req, res) => {
   const favoriteBeerId = req.body.favorite_beer_id;
-  // const userId = '5c8573bf2ad49f3ae0b0bf40';
   const userId = req.params.id;
 
   console.log("Put request:", req.body);
