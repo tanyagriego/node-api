@@ -53,3 +53,5 @@ function deleteBeer() {
 
 deleteBeer();
 
+console.log ("TEST THIS");
+
