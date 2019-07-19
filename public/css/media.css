@@ -17,7 +17,6 @@
         flex-wrap: wrap;
         margin: auto;        
         justify-content: center;
-        background-color: white;
         border: 1px solid black;
         border-radius: 8px;
         width: 200px;
@@ -28,7 +27,6 @@
 
     .app-title {
         color: black;
-        font-weight: bold;
         text-shadow: -1px 0px #F6B539;
         padding: 0px -5px;
         font-size: 40px;
@@ -39,9 +37,6 @@
     .search-form {
         position: absolute;
         bottom: -10px;
-        order: 2;
-        max-height: 25%;
-        justify-content: center;
     }
 
     .search-box, .submit-button {
@@ -60,11 +55,19 @@
         width: 100%;
         height: 25vh;
     }
-    #login {
+    .login-button {
         order: 1;
         margin: 10px;
         background-color: #F1A334;
         width: 33.33%;
+    }
+
+    #login {
+        order: 2;
+    }
+
+    #join {
+        order: 1;
     }
 /* } */
 
