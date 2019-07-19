@@ -1,3 +1,6 @@
+$(".register-container").hide();
+$(".login-container").hide();
+
 //This function registers a click event and grabs the user's input/beer query
 (function () {
     $(".search-form").submit (event => {
@@ -6,7 +9,7 @@
         const searchTermVal = $(event.currentTarget).find(".search-box")
         .val();
         localStorage.setItem('searchTermVal', JSON.stringify(searchTermVal));
-        window.location.href = "http://localhost:8080/beers";
+        window.location.href = "http://localhost:3000/beers";
     })
 
 //This function registers a click event and grabs the user's input for registration
@@ -24,7 +27,7 @@
 //somewhere in this function, we will also need to log in the new user
 function registerUser(user) {
   console.log('registerUser: ', user);
-  return fetch('http://localhost:8080/api/users/', {
+  return fetch('http://localhost:3000/api/users/', {
     method: 'POST',
     headers: {
       "Accept": "application/json",
@@ -56,7 +59,7 @@ function registerUser(user) {
 
 //post user to this this endpoint
 function getAuthToken(user) {
-  return fetch('http://localhost:8080/api/auth/login', {
+  return fetch('http://localhost:3000/api/auth/login', {
     method: 'POST',
     headers: {
       "Accept": "application/json",

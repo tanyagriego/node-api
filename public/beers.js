@@ -6,7 +6,7 @@
 	const authtoken =
 		'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWM2ZjAxMmQ3MzY4NWM2Yzk5NGY2NWUwIiwidXNlcm5hbWUiOiJwaWVycmUiLCJmaXJzdF9uYW1lIjoiYm9iYnkiLCJsYXN0X25hbWUiOiJ0YWJsZXMifSwiaWF0IjoxNTUwNzgwMjM2LCJleHAiOjE1NTEzODUwMzYsInN1YiI6InBpZXJyZSJ9.FnTg6H1mgA1_Tekce7-ryNvBhQ7ebkamBlh_6xBa_-U';
 
-	return fetch(`http://localhost:8080/api/beers?type=${searchTermValue}`, {
+	return fetch(`http://localhost:3000/api/beers?type=${searchTermValue}`, {
 		method: 'GET',
 		headers: {
 			Accept: 'application/json',
@@ -42,7 +42,7 @@ function saveFavoriteBeerRequest(favoriteBeerId) {
 	console.log('saveFavroiteBeerRequest function fired');
 	const userId = localStorage.getItem('userId');
 	return (
-		fetch(`http://localhost:8080/api/users/${userId}/favorites`, {
+		fetch(`http://localhost:3000/api/users/${userId}/favorites`, {
 			method: 'PUT',
 			headers: {
 				Accept: 'application/json',

@@ -16,7 +16,7 @@ const { PORT, DATABASE_URL } = require('./config');
 
 const app = express();
 app.use(express.static('public'));
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 3000);
 
 // Logging
 app.use(morgan('common'));
