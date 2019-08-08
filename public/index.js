@@ -12,6 +12,19 @@ $(".login-container").hide();
         window.location.href = "http://localhost:3000/beers";
     })
 
+//This function reveals the sign-up form and hides the button clicked button
+    $("#join").click (function(){
+      console.log("join-button function fired");
+      $(".register-container").show();
+    })
+
+    //This function reveals the sign-up form and hides the button clicked button
+    $("#Login").click (function(){
+      console.log("login-container function fired");
+      $(".login-container").show();
+    })
+
+
 //This function registers a click event and grabs the user's input for registration
     $(".register-container").submit (event => {
         console.log("registration function fired");
