@@ -26,8 +26,8 @@
                 </div>
             </section>
 
-            <section role= "region" class="register">
-                <form class="register-container">
+            <div class="register-container" id="modal">
+                <form class="register-form" id="modal-content">
                     <input type="text" class="first-name" placeholder="Enter First Name" name="first-name" required></input>
                     <input type="text" class="last-name" placeholder="Enter Last Name" name="last-name" required></input>
                     <input type="text" class="username" placeholder="Enter Username" name="username" required></input>
@@ -35,17 +35,16 @@
                     <button type="submit" class="registration">Sign Up</button>
                     <input type="checkbox" checked="checked" name="remember">Remember me</input>
                 </form>
-            </section>
+            </div>
 
-            <section role= "region" class="exisiting-user">
-                <form class="login-container">
+            <div class="login-container" id="modal">
+                <form class="login-form" id="modal-content">
                     <input type="text" class="username" placeholder="User Name" name="username" required></input>
                     <input type="password" class="password" placeholder="Enter Password" name="password" required>
                     <button type="submit" value="login" class="Login">Sign In</button>
                     <input type="checkbox" checked="checked" name="remember">Remember me</input>
                 </form>
-            </section>
-
+            </div>
         </main>     
     </body>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
