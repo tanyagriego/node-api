@@ -56,9 +56,23 @@
     }
     .login-button {
         order: 1;
-        margin: 10px;
+        border: 2px solid ghostwhite;
+        border-radius: 4px;
+        padding-left: 1px;
+        flex: 50%;
+        padding: 15px;
+        margin: 10px 15px;
+        box-shadow: -5px -3px 8px lightgrey;
         background-color: #F1A334;
-        width: 33.33%;
+        opacity: 0.97;
+        letter-spacing: 1px;
+        font-size: 40px;
+        font-weight: 300;
+        text-shadow: 1px 1px 1px #eaeaea;
+        border-bottom: 1px solid #efefef;
+        border-top: 1px solid #efefef;
+        padding: 5px 20px;
+        display: block;
     }
 
     #login {
