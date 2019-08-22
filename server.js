@@ -16,11 +16,7 @@ const { PORT, DATABASE_URL } = require('./config');
 
 const app = express();
 app.use(express.static('public'));
-app.listen(process.env.PORT || 8080);
-// app.listen(process.env.PORT || 3000, function(){
-//   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-// });
-
+app.listen(process.env.PORT || 3000);
 
 // Logging
 app.use(morgan('common'));
