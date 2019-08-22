@@ -51,7 +51,6 @@ function registerUser(user) {
   })
   .then(response => response.json())
   .then(auth => {
-    console.log('we are in there. Go us!', auth);
     console.log("USER==================== ", user)
     localStorage.setItem('currentUser', user);
     getAuthToken(user);

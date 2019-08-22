@@ -1,11 +1,12 @@
 /* @media screen and (max-width: 700px) { */
-    section.search-by-text{
+
+    section.search-by-text {
         background: url("../images/background.jpg");
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;
         opacity: 0.5;
-        height: 50vh;
+        height: 80vh;
         display: flex;
         flex-direction: column;
         position: relative;
@@ -40,6 +41,11 @@
 
     .search-box, .submit-button {
         padding: 5px 5px;
+        /* border: none;
+        border-bottom: 3px solid ghostwhite;
+        color: rgb(41, 223, 24); */
+        /* font-size: 25px; */
+        /* width: 100%; */
     }
     
     .submit-button {
@@ -73,6 +79,7 @@
         border-top: 1px solid #efefef;
         padding: 5px 20px;
         display: block;
+        height: 20vh;
     }
 
     #login {
