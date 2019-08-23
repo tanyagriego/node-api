@@ -4,7 +4,6 @@
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;
-        /* z-index: -1; */
         opacity: 0.5;
         height: 50vh;
         display: flex;
@@ -17,7 +16,6 @@
         flex-wrap: wrap;
         margin: auto;        
         justify-content: center;
-        background-color: white;
         border: 1px solid black;
         border-radius: 8px;
         width: 200px;
@@ -28,7 +26,6 @@
 
     .app-title {
         color: black;
-        font-weight: bold;
         text-shadow: -1px 0px #F6B539;
         padding: 0px -5px;
         font-size: 40px;
@@ -39,9 +36,6 @@
     .search-form {
         position: absolute;
         bottom: -10px;
-        order: 2;
-        max-height: 25%;
-        justify-content: center;
     }
 
     .search-box, .submit-button {
@@ -60,11 +54,55 @@
         width: 100%;
         height: 25vh;
     }
-    #search-icons {
+    .login-button {
         order: 1;
-        margin: 10px;
+        border: 2px solid ghostwhite;
+        border-radius: 4px;
+        padding-left: 1px;
+        flex: 50%;
+        padding: 15px;
+        margin: 10px 15px;
+        box-shadow: -5px -3px 8px lightgrey;
         background-color: #F1A334;
-        width: 33.33%;
+        opacity: 0.97;
+        letter-spacing: 1px;
+        font-size: 40px;
+        font-weight: 300;
+        text-shadow: 1px 1px 1px #eaeaea;
+        border-bottom: 1px solid #efefef;
+        border-top: 1px solid #efefef;
+        padding: 5px 20px;
+        display: block;
+    }
+
+    #login {
+        order: 2;
+        color: red;
+    }
+
+    #join {
+        order: 1;
+    }
+
+    #modal {
+        background-color: rgba(0,0,0,0.7);
+        left: 0;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #modal-content {
+        background-color: #f4f4f4;
+        margin: 20% auto;
+        padding: 20px;
+        width: 70%;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0  rgba(0, 0, 0, 0.17);
     }
 /* } */
 

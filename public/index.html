@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>GF PINTS</title>
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/media.css">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">        
     </head>
@@ -11,7 +11,7 @@
         <main role="main">
             <section role="region" class="search-by-text">
                 <div class="title-container">
-                    <p class="app-title">GF PINTS</p>
+                    <div class="app-title">GF PINTS</p>
                 </div>           
                 <form action="#" class="search-form" aria-controls="search_results">                
                     <input type="text" class="search-box" placeholder="Search by beer type or neighborhood">
@@ -21,14 +21,13 @@
             
             <section role="region" class="search-by-icon">
                 <div class="icon-container">
-                    <div class="seach-beerType" id="search-icons"></div>
-                    <div class="seach-beerType" id="search-icons"></div>
-                    <div class="seach-beerType" id="search-icons"></div>
+                    <button type="button" class="login-button" id="join">Join</button>
+                    <button type="button" class="login-button" id="Login">Login</button>
                 </div>
             </section>
 
-            <section role= "region" class="register">
-                <form class="register-container">
+            <div class="register-container" id="modal">
+                <form class="register-form" id="modal-content">
                     <input type="text" class="first-name" placeholder="Enter First Name" name="first-name" required></input>
                     <input type="text" class="last-name" placeholder="Enter Last Name" name="last-name" required></input>
                     <input type="text" class="username" placeholder="Enter Username" name="username" required></input>
@@ -36,17 +35,16 @@
                     <button type="submit" class="registration">Sign Up</button>
                     <input type="checkbox" checked="checked" name="remember">Remember me</input>
                 </form>
-            </section>
+            </div>
 
-            <section role= "region" class="exisiting-user">
-                <form class="login-container">
+            <div class="login-container" id="modal">
+                <form class="login-form" id="modal-content">
                     <input type="text" class="username" placeholder="User Name" name="username" required></input>
                     <input type="password" class="password" placeholder="Enter Password" name="password" required>
                     <button type="submit" value="login" class="Login">Sign In</button>
                     <input type="checkbox" checked="checked" name="remember">Remember me</input>
                 </form>
-            </section>
-
+            </div>
         </main>     
     </body>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
