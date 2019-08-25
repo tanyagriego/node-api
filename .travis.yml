@@ -2,8 +2,8 @@ language: node_js
 node_js: node
 deploy:
   provider: heroku
-  edge: true
-  api_key:
+  # edge: true
+  api_key: 
     secure: pQ9CZj98yW0Zt3oWoTZl3bbfHPwgYlfgzz9y0dqWOwHeIg2auZSfNHtlb91l9rLrmrltuocvJV4GUqqR6GT2b0WayIwmDGpJJwPJIeeJhXyP67bJoLJOv351tiMusX2nZgsQH3wTWWtu4dFPOoYg1yLX0bl4Hx7QS8ajDdoKI/o4b/M7OU5fcagIa1DD3IPQnsQS640MPGpuJFXlp9dmWDEufMKrSjjppBQgpWu/GwmuQ8E3lMJ5xqp8UjnAB6R3lQ8WwYvNFPm5lE2wXRbG8zruMwcVycJRvrlMFZphlxbj1tzoPkxhaX2jOJSFYQX3fxlqAdqhOiX+HpwMeT47GP8/gIU+jDucXeUjrt4NSA/EdgcRgSn2Qut4GoCjKe1ckLea65jXChxACZEf6ZX0hzptLAM/pPPPgYgcaOEEjRgRIydDLLfu3w+UYTfd0FwLv05dvp3n2Jk9jYGlt5+9dgsXJmMGmswer1NQ9NH8Y/s5bytgvpFaHg8NOwyS36CvMhzy6WgE5cbR1In1BMsCrIga/WKJ5Teeg3+fVQpyrt7NuNAjFQgBzLCQrvXlgIyFCy2dpoYJ0quH7riMvc3ZaVqIZ/3q/sH9qiIg4dWh5YZ5cbvHDkxstEueCIfwd5fW52zkpv33ONJWAT9K+bkN7XZ/p/BVQnxmjsFkmbaK3zg=
   app: node-api
   on:
