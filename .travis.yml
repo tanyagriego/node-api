@@ -9,4 +9,7 @@ deploy:
   app: node-api
   on:
     repo: tanyagriego/node-api
-    branch: modals
+    # branch: modals
+    branches:    
+      only:      
+        - master 
