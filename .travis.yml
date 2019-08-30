@@ -9,4 +9,5 @@ deploy:
   app: node-api
   on:
     repo: tanyagriego/node-api
-    branch: modals
+    all_branches: true
+    # branch: modals
