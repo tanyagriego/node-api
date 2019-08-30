@@ -10,4 +10,4 @@ deploy:
   on:
     repo: tanyagriego/node-api
     # all_branches: true
-    branch: master
+    # branch: master
