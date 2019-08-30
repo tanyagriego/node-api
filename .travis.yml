@@ -1,28 +1,4 @@
-# language: node_js
-# node_js: node
-# deploy:
-  # provider: heroku
-  # edge: true
-  # api_key: 
-    # secure: 41150471-9344-4fea-9d0a-6ba9bb675ea4
-    # secure: pQ9CZj98yW0Zt3oWoTZl3bbfHPwgYlfgzz9y0dqWOwHeIg2auZSfNHtlb91l9rLrmrltuocvJV4GUqqR6GT2b0WayIwmDGpJJwPJIeeJhXyP67bJoLJOv351tiMusX2nZgsQH3wTWWtu4dFPOoYg1yLX0bl4Hx7QS8ajDdoKI/o4b/M7OU5fcagIa1DD3IPQnsQS640MPGpuJFXlp9dmWDEufMKrSjjppBQgpWu/GwmuQ8E3lMJ5xqp8UjnAB6R3lQ8WwYvNFPm5lE2wXRbG8zruMwcVycJRvrlMFZphlxbj1tzoPkxhaX2jOJSFYQX3fxlqAdqhOiX+HpwMeT47GP8/gIU+jDucXeUjrt4NSA/EdgcRgSn2Qut4GoCjKe1ckLea65jXChxACZEf6ZX0hzptLAM/pPPPgYgcaOEEjRgRIydDLLfu3w+UYTfd0FwLv05dvp3n2Jk9jYGlt5+9dgsXJmMGmswer1NQ9NH8Y/s5bytgvpFaHg8NOwyS36CvMhzy6WgE5cbR1In1BMsCrIga/WKJ5Teeg3+fVQpyrt7NuNAjFQgBzLCQrvXlgIyFCy2dpoYJ0quH7riMvc3ZaVqIZ/3q/sH9qiIg4dWh5YZ5cbvHDkxstEueCIfwd5fW52zkpv33ONJWAT9K+bkN7XZ/p/BVQnxmjsFkmbaK3zg=
-  # app: serene-savannah-68358
-  # on:
-  #   repo: tanyagriego/node-api
-    # all_branches: true
-    # branch: master
-
-    language: node_js
-node_js: node
+language: node_js
 deploy:
-  provider: heroku
-  # edge: true
-  api_key: 
-    secure: 41150471-9344-4fea-9d0a-6ba9bb675ea4
-    # secure: pQ9CZj98yW0Zt3oWoTZl3bbfHPwgYlfgzz9y0dqWOwHeIg2auZSfNHtlb91l9rLrmrltuocvJV4GUqqR6GT2b0WayIwmDGpJJwPJIeeJhXyP67bJoLJOv351tiMusX2nZgsQH3wTWWtu4dFPOoYg1yLX0bl4Hx7QS8ajDdoKI/o4b/M7OU5fcagIa1DD3IPQnsQS640MPGpuJFXlp9dmWDEufMKrSjjppBQgpWu/GwmuQ8E3lMJ5xqp8UjnAB6R3lQ8WwYvNFPm5lE2wXRbG8zruMwcVycJRvrlMFZphlxbj1tzoPkxhaX2jOJSFYQX3fxlqAdqhOiX+HpwMeT47GP8/gIU+jDucXeUjrt4NSA/EdgcRgSn2Qut4GoCjKe1ckLea65jXChxACZEf6ZX0hzptLAM/pPPPgYgcaOEEjRgRIydDLLfu3w+UYTfd0FwLv05dvp3n2Jk9jYGlt5+9dgsXJmMGmswer1NQ9NH8Y/s5bytgvpFaHg8NOwyS36CvMhzy6WgE5cbR1In1BMsCrIga/WKJ5Teeg3+fVQpyrt7NuNAjFQgBzLCQrvXlgIyFCy2dpoYJ0quH7riMvc3ZaVqIZ/3q/sH9qiIg4dWh5YZ5cbvHDkxstEueCIfwd5fW52zkpv33ONJWAT9K+bkN7XZ/p/BVQnxmjsFkmbaK3zg=
-  app: serene-savannah-68358
-  on:
-    repo: tanyagriego/node-api
-    branches: 
-      only:
-        - master
+  api_key:
+    secure: vKqgQWKs1HHOoaWn5uez8F5kYnabhmc/6tl/M1BhtYjBxUsbEODIMWTziTbUMUrppoCVihWDzpdI133N9Tu6zgQNrpu3RYhdfZzJE86gp/nb3dnDd+X4bBw72LX2n2xj1tffeeKG61xbVloD664D8686P+fR5uuyfYb7SIbf7t0Eu3137RSm+8GyCxUtlznP/LjLy1k192QIwcf2Qh+1/l1of9vbkLQb/3iuOZC6CJ02Izf8RRoLNJ4gf19+TPpc20egb+258hJ/1QIbnsDUsjgr6Ac5ekywpt7J0/SHDF3VikvaFZh/reUyn1PicV1WqUsVLroJCizh6I6ANrACdOujvYtDqvAbM7WOFRUFSTwo/kmYf+fF64oJCVDsu2/TelNex6jIuM/q7OOp1GScDIJzkEbFmdA9oy2l+j/9ptszKrSZ0ezq/utUIwt1tOtPgfib9z5svq0OB4+N+n/6bGYkUEZREbOZ+19Re4UqnuyNlDoPK8RaNJXjLrXyoe0lc70mQYPKpX08AgysXrsykAw02Gq8D2GIdblon9fvdUVWNtHfAPfREkYlutoqTTX8HWOzUF0SMzJqADV0bMSQKYGtaEr8q7qZ5lKQTLcjMDkSVusFOZfrWYxN8XCrxw1lIHE9AqN743uSa7DxeLSslvkengVbgLLykv3FSvTnDl0=
