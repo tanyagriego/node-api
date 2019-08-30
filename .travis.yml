@@ -9,5 +9,5 @@ deploy:
   app: serene-savannah-68358
   on:
     repo: tanyagriego/node-api
-    all_branches: true
-    # branch: modals
+    # all_branches: true
+    branch: modals
