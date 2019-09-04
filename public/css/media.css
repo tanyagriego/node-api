@@ -98,10 +98,11 @@
         position: fixed;
         top: 0;
         width: 100%;
-        z-index: 0;
+        z-index: 1;
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: auto;
     }
 
     #modal-content {
@@ -110,6 +111,26 @@
         padding: 20px;
         width: 70%;
         box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0  rgba(0, 0, 0, 0.17);
+        animation-name: modalopen;
+        animation-duration: 1s;
+
+    }
+
+    .closeBtn {
+        color: #ccc;
+        float: right;
+        font-size: 30px;
+    }
+
+    .closeBtn:hover, .closeBtn:focus {
+        color: black;
+        text-decoration: none; 
+        cursor: pointer;
+    }
+
+    @keyframes modalopen {
+        from {opacity: 0}
+        to {opacity: 1}
     }
 /* } */
 
