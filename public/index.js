@@ -1,5 +1,6 @@
 $(".register-container").hide();
 $(".login-container").hide();
+const modal = document.getElementById('modal');
 
 //This function registers a click event and grabs the user's input/beer query
 (function () {
@@ -28,11 +29,12 @@ $(".login-container").hide();
       $(".register-container").hide();
       $(".login-container").hide();
     })
-
-    $(".register-container").click(function() {
-      $(".register-container").hide();
-      $(".login-container").hide();
-    })
+    
+    window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
 
 //This function registers a click event and grabs the user's input for registration
     $(".register-container").submit (event => {
