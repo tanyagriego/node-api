@@ -5,7 +5,7 @@
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;
-        opacity: 0.5;
+        opacity: 0.7;
         height: 80vh;
         display: flex;
         flex-direction: column;
@@ -39,18 +39,21 @@
         bottom: -10px;
     }
 
-    .search-box, .submit-button {
-        padding: 5px 5px;
-        /* border: none;
+    .search-box {
+        width: 100%;
+        padding: 10px;
+        border: none;
         border-bottom: 3px solid ghostwhite;
-        color: rgb(41, 223, 24); */
-        /* font-size: 25px; */
-        /* width: 100%; */
     }
     
     .submit-button {
         color:#F6B539;
         background-color: red;
+        width: 75%;
+        padding: 10px;
+        border: none;
+        border-bottom: 3px solid ghostwhite;
+
     }
 
     .icon-container {
