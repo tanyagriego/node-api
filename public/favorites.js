@@ -34,7 +34,7 @@ function renderBeers(beers) {
 }
 
 function deleteRequest(beerId, $deletedObj) {
-  return fetch(`http://localhost:3000/api/beers/${beerId}`, {
+  return fetch(`http://localhost:3000/api/${beerId}`, {
     method: 'DELETE',
     headers: {'Content-Type': 'application/json'},
   })
