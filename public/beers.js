@@ -1,17 +1,17 @@
+const port = 3000;
 (function fetchBeer() {
 	let searchTermValue = localStorage.getItem('searchTermVal');
 	searchTermValue = JSON.parse(searchTermValue);
-	// const authToken = JSON.parse(localStorage.getItem('authToken'));
-
+	const authToken = JSON.parse(localStorage.getItem('authToken'));
 	const authtoken =
 		'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWM2ZjAxMmQ3MzY4NWM2Yzk5NGY2NWUwIiwidXNlcm5hbWUiOiJwaWVycmUiLCJmaXJzdF9uYW1lIjoiYm9iYnkiLCJsYXN0X25hbWUiOiJ0YWJsZXMifSwiaWF0IjoxNTUwNzgwMjM2LCJleHAiOjE1NTEzODUwMzYsInN1YiI6InBpZXJyZSJ9.FnTg6H1mgA1_Tekce7-ryNvBhQ7ebkamBlh_6xBa_-U';
 
-	return fetch(`http://localhost:3000/api/beers?type=${searchTermValue}`, {
+	return fetch(`http://localhost:${port}/api/beers?type=${searchTermValue}`, {
 		method: 'GET',
 		headers: {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',	
-			Authorization: `Bearer ${authtoken}`
+			// Authorization: `Bearer ${authtoken}`
 		},
 		mode: 'cors'
 	})
@@ -42,7 +42,7 @@ function saveFavoriteBeerRequest(favoriteBeerId) {
 	console.log('saveFavroiteBeerRequest function fired');
 	const userId = localStorage.getItem('userId');
 	return (
-		fetch(`http://localhost:3000/api/users/${userId}/favorites`, {
+		fetch(`http://localhost:${port}/api/users/${userId}/favorites`, {
 			method: 'PUT',
 			headers: {
 				Accept: 'application/json',
