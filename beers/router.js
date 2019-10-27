@@ -8,6 +8,7 @@ const jsonParser = bodyParser.json();
 
 router.post('/', jsonParser, (req, res) => {
   console.log("Post Request");
+  // return res.status(200);
   return Beers
   .create ({
     beer_type: req.body.beer_type,
