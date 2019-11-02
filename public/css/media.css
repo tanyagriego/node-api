@@ -161,6 +161,19 @@
         to {opacity: 1}
     }
 /* } */
+    #beersList {
+       display: flex; 
+       flex-wrap: wrap;
+       height: 280px;
+       background: brown;
+       padding: 10px 4px;
+       margin: 10px 8px
+    }
+.beer-list-results {
+        background: yellow;
+        /* width: 50%; */
+        padding: 4px 10px;
+        margin: 4px;
 
 @media only screen and (min-width: 700px) {
 
