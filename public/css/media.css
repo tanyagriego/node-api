@@ -190,8 +190,9 @@
     #beersList {
        display: flex; 
        flex-wrap: wrap;
+       justify-content: space-around;
        height: 280px;
-       background: grey;
+       background: black;
        padding: 10px 4px;
        margin: 10px 8px
     }
