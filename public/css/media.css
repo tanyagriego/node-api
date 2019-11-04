@@ -30,7 +30,7 @@
         font: inherit;
     }
 
-    .app-title {
+    .app-title, .site-title {
         font-size: 3em;
         line-height: 1.16667em;
         letter-spacing: -0.00833333em;
@@ -39,6 +39,12 @@
         color: rgb(255, 255, 255);
         margin: 0px;
     }
+    .site-title {
+        background-color: rgb(22, 115, 230);
+        color: rgb(255, 255, 255);
+        font-size: 30px;
+        padding: 10px;
+    }   
 
     
     .search-form {
@@ -109,6 +115,8 @@
         padding: 5px 20px;
         display: block;
         height: 20vh;
+        font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+
     }
 
     #login {
@@ -201,7 +209,8 @@
         color: rgb(255, 255, 255);
         border-radius: 20px;
         margin: 4px;
+}
 
 @media only screen and (min-width: 700px) {
 
-    }
+    } 
