@@ -24,7 +24,7 @@ const port = 3000;
 function renderBeers(beers) {
 	beers.forEach((beer) => {
 		console.log('beer: ', beer);
-		$('#beersList').append(
+		$('.beersList').append(
 			`<div class="beer-list-results">
           <ul>
             <li class= "beer-list-item">${beer.display_name}</li>
